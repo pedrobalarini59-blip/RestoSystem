@@ -30,9 +30,12 @@ public class TablaCliente extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaCliente = new javax.swing.JTable();
+        VolverCliente = new javax.swing.JButton();
+        BorrarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        TablaCliente.setBackground(new java.awt.Color(255, 255, 255));
         TablaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -54,25 +57,44 @@ public class TablaCliente extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaCliente);
 
+        VolverCliente.setText("Volver");
+        VolverCliente.addActionListener(this::VolverClienteActionPerformed);
+
+        BorrarCliente.setText("Borrar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(VolverCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BorrarCliente)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(VolverCliente)
+                    .addComponent(BorrarCliente))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void VolverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VolverClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,7 +122,9 @@ public class TablaCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BorrarCliente;
     private javax.swing.JTable TablaCliente;
+    private javax.swing.JButton VolverCliente;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
