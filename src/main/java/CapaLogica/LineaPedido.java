@@ -1,5 +1,5 @@
 package CapaLogica;
-
+//test
 public class LineaPedido {
     
     private int id_pedido;
