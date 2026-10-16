@@ -8,14 +8,14 @@ package CapaGrafica;
  *
  * @author Usuario
  */
-public class Tabla extends javax.swing.JFrame {
+public class TablaCliente extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Tabla.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TablaCliente.class.getName());
 
     /**
      * Creates new form Tabla
      */
-    public Tabla() {
+    public TablaCliente() {
         initComponents();
     }
 
@@ -96,7 +96,7 @@ public class Tabla extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Tabla().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TablaCliente().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
