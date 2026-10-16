@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Usuario
+ * @author Usuario propietario
  */
 public class Registro extends javax.swing.JFrame {
     
