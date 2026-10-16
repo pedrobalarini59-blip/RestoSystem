@@ -31,25 +31,29 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
+        CerrarMenuPrincipal = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        MenuRestaurantes = new javax.swing.JMenu();
+        MenuRestauranteRegistrar = new javax.swing.JMenuItem();
+        MenuRestauranteBuscar = new javax.swing.JMenuItem();
         MenuEmpleado = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        MenuEmpleadoRegistrar = new javax.swing.JMenuItem();
+        MenuEmpleadoBuscar = new javax.swing.JMenuItem();
         MenuClientes = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        MenuClientesRegistrar = new javax.swing.JMenuItem();
+        MenuClientesBuscar = new javax.swing.JMenuItem();
+        MenuMesas = new javax.swing.JMenu();
+        MenuMesasRegistrar = new javax.swing.JMenuItem();
+        MenuMesasBuscar = new javax.swing.JMenuItem();
+        MenuReservas = new javax.swing.JMenu();
+        MenuReservasRegistrar = new javax.swing.JMenuItem();
+        MenuReservasBuscar = new javax.swing.JMenuItem();
+        MenuPlatos = new javax.swing.JMenu();
+        MenuPlatosRegistrar = new javax.swing.JMenuItem();
+        MenuPlatosBuscar = new javax.swing.JMenuItem();
+        MenuPedidos = new javax.swing.JMenu();
+        MenuPedidosRegistrar = new javax.swing.JMenuItem();
+        MenuPedidosBuscar = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -59,74 +63,90 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu3.setText("Restaurantes");
+        CerrarMenuPrincipal.setText("Cerrar");
+        CerrarMenuPrincipal.addActionListener(this::CerrarMenuPrincipalActionPerformed);
 
-        jMenuItem6.setText("Registrar");
-        jMenu3.add(jMenuItem6);
+        MenuRestaurantes.setText("Restaurantes");
 
-        jMenuItem5.setText("Buscar");
-        jMenuItem5.addActionListener(this::jMenuItem5ActionPerformed);
-        jMenu3.add(jMenuItem5);
+        MenuRestauranteRegistrar.setText("Registrar");
+        MenuRestaurantes.add(MenuRestauranteRegistrar);
 
-        jMenuBar1.add(jMenu3);
+        MenuRestauranteBuscar.setText("Buscar");
+        MenuRestauranteBuscar.addActionListener(this::MenuRestauranteBuscarActionPerformed);
+        MenuRestaurantes.add(MenuRestauranteBuscar);
+
+        jMenuBar1.add(MenuRestaurantes);
 
         MenuEmpleado.setText("Empleado");
 
-        jMenuItem7.setText("Registrar");
-        MenuEmpleado.add(jMenuItem7);
+        MenuEmpleadoRegistrar.setText("Registrar");
+        MenuEmpleado.add(MenuEmpleadoRegistrar);
 
-        jMenuItem8.setText("Buscar");
-        jMenuItem8.addActionListener(this::jMenuItem8ActionPerformed);
-        MenuEmpleado.add(jMenuItem8);
+        MenuEmpleadoBuscar.setText("Buscar");
+        MenuEmpleadoBuscar.addActionListener(this::MenuEmpleadoBuscarActionPerformed);
+        MenuEmpleado.add(MenuEmpleadoBuscar);
 
         jMenuBar1.add(MenuEmpleado);
 
         MenuClientes.setText("Clientes");
 
-        jMenuItem1.setText("Registrar");
-        jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
-        MenuClientes.add(jMenuItem1);
+        MenuClientesRegistrar.setText("Registrar");
+        MenuClientesRegistrar.addActionListener(this::MenuClientesRegistrarActionPerformed);
+        MenuClientes.add(MenuClientesRegistrar);
 
-        jMenuItem2.setText("Buscar");
-        MenuClientes.add(jMenuItem2);
+        MenuClientesBuscar.setText("Buscar");
+        MenuClientes.add(MenuClientesBuscar);
 
         jMenuBar1.add(MenuClientes);
 
-        jMenu4.setText("Mesas");
-        jMenu4.setToolTipText("");
+        MenuMesas.setText("Mesas");
+        MenuMesas.setToolTipText("");
 
-        jMenuItem4.setText("Registrar");
-        jMenuItem4.addActionListener(this::jMenuItem4ActionPerformed);
-        jMenu4.add(jMenuItem4);
+        MenuMesasRegistrar.setText("Registrar");
+        MenuMesasRegistrar.addActionListener(this::MenuMesasRegistrarActionPerformed);
+        MenuMesas.add(MenuMesasRegistrar);
 
-        jMenuItem3.setText("Buscar");
-        jMenu4.add(jMenuItem3);
+        MenuMesasBuscar.setText("Buscar");
+        MenuMesasBuscar.addActionListener(this::MenuMesasBuscarActionPerformed);
+        MenuMesas.add(MenuMesasBuscar);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(MenuMesas);
 
-        jMenu5.setText("Plato");
+        MenuReservas.setText("Reservas");
 
-        jMenuItem10.setText("Registrar");
-        jMenuItem10.addActionListener(this::jMenuItem10ActionPerformed);
-        jMenu5.add(jMenuItem10);
+        MenuReservasRegistrar.setText("Registrar");
+        MenuReservasRegistrar.addActionListener(this::MenuReservasRegistrarActionPerformed);
+        MenuReservas.add(MenuReservasRegistrar);
 
-        jMenuItem11.setText("Buscar");
-        jMenuItem11.addActionListener(this::jMenuItem11ActionPerformed);
-        jMenu5.add(jMenuItem11);
+        MenuReservasBuscar.setText("Buscar");
+        MenuReservasBuscar.addActionListener(this::MenuReservasBuscarActionPerformed);
+        MenuReservas.add(MenuReservasBuscar);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(MenuReservas);
 
-        jMenu6.setText("Pedido");
+        MenuPlatos.setText("Platos");
 
-        jMenuItem12.setText("Registrar");
-        jMenuItem12.addActionListener(this::jMenuItem12ActionPerformed);
-        jMenu6.add(jMenuItem12);
+        MenuPlatosRegistrar.setText("Registrar");
+        MenuPlatosRegistrar.addActionListener(this::MenuPlatosRegistrarActionPerformed);
+        MenuPlatos.add(MenuPlatosRegistrar);
 
-        jMenuItem13.setText("Buscar");
-        jMenuItem13.addActionListener(this::jMenuItem13ActionPerformed);
-        jMenu6.add(jMenuItem13);
+        MenuPlatosBuscar.setText("Buscar");
+        MenuPlatosBuscar.addActionListener(this::MenuPlatosBuscarActionPerformed);
+        MenuPlatos.add(MenuPlatosBuscar);
 
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(MenuPlatos);
+
+        MenuPedidos.setText("Pedidos");
+
+        MenuPedidosRegistrar.setText("Registrar");
+        MenuPedidosRegistrar.addActionListener(this::MenuPedidosRegistrarActionPerformed);
+        MenuPedidos.add(MenuPedidosRegistrar);
+
+        MenuPedidosBuscar.setText("Buscar");
+        MenuPedidosBuscar.addActionListener(this::MenuPedidosBuscarActionPerformed);
+        MenuPedidos.add(MenuPedidosBuscar);
+
+        jMenuBar1.add(MenuPedidos);
 
         setJMenuBar(jMenuBar1);
 
@@ -134,49 +154,71 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(519, Short.MAX_VALUE)
+                .addComponent(CerrarMenuPrincipal)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 261, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(232, Short.MAX_VALUE)
+                .addComponent(CerrarMenuPrincipal)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void MenuClientesRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClientesRegistrarActionPerformed
         // TODO add your handling code here:
         Registro ventanaRegistro = new Registro();
                 ventanaRegistro.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_MenuClientesRegistrarActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void MenuMesasRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMesasRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_MenuMesasRegistrarActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void MenuRestauranteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRestauranteBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_MenuRestauranteBuscarActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void MenuEmpleadoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEmpleadoBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_MenuEmpleadoBuscarActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    private void MenuPlatosRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPlatosRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    }//GEN-LAST:event_MenuPlatosRegistrarActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+    private void MenuPlatosBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPlatosBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    }//GEN-LAST:event_MenuPlatosBuscarActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void MenuPedidosRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPedidosRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }//GEN-LAST:event_MenuPedidosRegistrarActionPerformed
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+    private void MenuPedidosBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPedidosBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    }//GEN-LAST:event_MenuPedidosBuscarActionPerformed
+
+    private void MenuReservasRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuReservasRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuReservasRegistrarActionPerformed
+
+    private void MenuReservasBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuReservasBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuReservasBuscarActionPerformed
+
+    private void CerrarMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarMenuPrincipalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CerrarMenuPrincipalActionPerformed
+
+    private void MenuMesasBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMesasBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuMesasBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,27 +246,31 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CerrarMenuPrincipal;
     private javax.swing.JMenu MenuClientes;
+    private javax.swing.JMenuItem MenuClientesBuscar;
+    private javax.swing.JMenuItem MenuClientesRegistrar;
     private javax.swing.JMenu MenuEmpleado;
+    private javax.swing.JMenuItem MenuEmpleadoBuscar;
+    private javax.swing.JMenuItem MenuEmpleadoRegistrar;
+    private javax.swing.JMenu MenuMesas;
+    private javax.swing.JMenuItem MenuMesasBuscar;
+    private javax.swing.JMenuItem MenuMesasRegistrar;
+    private javax.swing.JMenu MenuPedidos;
+    private javax.swing.JMenuItem MenuPedidosBuscar;
+    private javax.swing.JMenuItem MenuPedidosRegistrar;
+    private javax.swing.JMenu MenuPlatos;
+    private javax.swing.JMenuItem MenuPlatosBuscar;
+    private javax.swing.JMenuItem MenuPlatosRegistrar;
+    private javax.swing.JMenu MenuReservas;
+    private javax.swing.JMenuItem MenuReservasBuscar;
+    private javax.swing.JMenuItem MenuReservasRegistrar;
+    private javax.swing.JMenuItem MenuRestauranteBuscar;
+    private javax.swing.JMenuItem MenuRestauranteRegistrar;
+    private javax.swing.JMenu MenuRestaurantes;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }
