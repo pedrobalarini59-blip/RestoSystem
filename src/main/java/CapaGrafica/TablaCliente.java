@@ -63,6 +63,7 @@ public class TablaCliente extends javax.swing.JFrame {
         VolverCliente.addActionListener(this::VolverClienteActionPerformed);
 
         BorrarCliente.setText("Borrar");
+        BorrarCliente.addActionListener(this::BorrarClienteActionPerformed);
 
         TablaClienteTelefono.setBackground(new java.awt.Color(255, 255, 255));
         TablaClienteTelefono.setModel(new javax.swing.table.DefaultTableModel(
@@ -126,6 +127,10 @@ public class TablaCliente extends javax.swing.JFrame {
     private void VolverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_VolverClienteActionPerformed
+
+    private void BorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BorrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
