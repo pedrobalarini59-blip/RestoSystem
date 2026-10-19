@@ -96,6 +96,7 @@ public class Menu extends javax.swing.JFrame {
         MenuClientes.add(MenuClientesRegistrar);
 
         MenuClientesBuscar.setText("Buscar");
+        MenuClientesBuscar.addActionListener(this::MenuClientesBuscarActionPerformed);
         MenuClientes.add(MenuClientesBuscar);
 
         jMenuBar1.add(MenuClientes);
@@ -183,8 +184,6 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuRestauranteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRestauranteBuscarActionPerformed
         // TODO add your handling code here: 
-        BuscarCliente ventanaBuscarCliente = new BuscarCliente();
-        ventanaBuscarCliente.setVisible(true);
     }//GEN-LAST:event_MenuRestauranteBuscarActionPerformed
 
     private void MenuEmpleadoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEmpleadoBuscarActionPerformed
@@ -226,6 +225,12 @@ public class Menu extends javax.swing.JFrame {
     private void MenuRestauranteRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRestauranteRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuRestauranteRegistrarActionPerformed
+
+    private void MenuClientesBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClientesBuscarActionPerformed
+        // TODO add your handling code here:
+        BuscarCliente ventanaBuscarCliente = new BuscarCliente();
+        ventanaBuscarCliente.setVisible(true);
+    }//GEN-LAST:event_MenuClientesBuscarActionPerformed
 
     /**
      * @param args the command line arguments
