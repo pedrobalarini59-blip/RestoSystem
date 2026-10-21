@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\aemil\OneDrive\Documentos\GitHub\RestoSystem\src\main\java\CapaGrafica\BuscarCliente.java
 C:\Users\aemil\OneDrive\Documentos\GitHub\RestoSystem\src\main\java\CapaGrafica\Menu.java
 C:\Users\aemil\OneDrive\Documentos\GitHub\RestoSystem\src\main\java\CapaGrafica\Registro.java
@@ -16,3 +17,23 @@ C:\Users\aemil\OneDrive\Documentos\GitHub\RestoSystem\src\main\java\CapaLogica\P
 C:\Users\aemil\OneDrive\Documentos\GitHub\RestoSystem\src\main\java\CapaLogica\Reserva.java
 C:\Users\aemil\OneDrive\Documentos\GitHub\RestoSystem\src\main\java\CapaLogica\Restaurante.java
 C:\Users\aemil\OneDrive\Documentos\GitHub\RestoSystem\src\main\java\CapaLogica\RestoSystem.java
+=======
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaGrafica\BuscarCliente.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaGrafica\Menu.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaGrafica\Registro.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaGrafica\TablaCliente.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Cliente.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Clientes.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Cocinero.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Empleado.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\EstadoPedido.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\EstadoReserva.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\LineaPedido.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Mesa.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Mozo.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Pedido.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Plato.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Reserva.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\Restaurante.java
+C:\Users\61566716\Documents\PROYECTO_LosBuenaOnda\netbeans\RestoSystem\src\main\java\CapaLogica\RestoSystem.java
+>>>>>>> Stashed changes
