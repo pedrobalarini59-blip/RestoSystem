@@ -1,5 +1,5 @@
 package CapaLogica;
-
+//pe causa
 import java.util.List;
 
 public class Mozo extends Empleado {
