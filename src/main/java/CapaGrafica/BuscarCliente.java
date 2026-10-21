@@ -13,16 +13,18 @@ public class BuscarCliente extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarCliente.class.getName());
 
     private void TodosLosClientes(){
-        java.util.List<CapaLogica.Cliente> listaClientes = CapaLogica.getlistaClientes();
+        java.util.List<CapaLogica.Cliente> listaClientes = CapaLogica.Clientes.getlistaClientes();
         
         if (listaClientes.isEmpty()){
             TodosLosClientes.setText("no hay clientes registrados");
+            return;
         }
         
         String clientes = "";
         for (CapaLogica.Cliente c : listaClientes){
             clientes = c.getNombre();
         }
+        TodosLosClientes.setText(clientes);
     }
     public BuscarCliente() {
         initComponents();
@@ -68,10 +70,12 @@ public class BuscarCliente extends javax.swing.JFrame {
         jButton3.setText("Borrar");
         jButton3.addActionListener(this::jButton3ActionPerformed);
 
+        mostrarClientes.setEditable(false);
         mostrarClientes.setColumns(20);
         mostrarClientes.setRows(5);
         jScrollPane2.setViewportView(mostrarClientes);
 
+        TodosLosClientes.setEditable(false);
         TodosLosClientes.setColumns(20);
         TodosLosClientes.setRows(5);
         jScrollPane3.setViewportView(TodosLosClientes);
@@ -81,27 +85,27 @@ public class BuscarCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(documentoClienteBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(123, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
-                        .addGap(18, 18, 18))
+                        .addGap(150, 150, 150))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150))))
+                        .addGap(61, 61, 61))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,11 +116,11 @@ public class BuscarCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(documentoClienteBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton1))
@@ -137,7 +141,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         CapaLogica.Cliente clienteEncontrado = CapaLogica.Clientes.buscarCliente(documento);
         
         if(clienteEncontrado != null) {
-            String datosClientes = clienteEncontrado.getDocumento() + " " + clienteEncontrado.getNombre();
+            String datosClientes = clienteEncontrado.getDocumento() + " " + clienteEncontrado.getNombre() + " " + clienteEncontrado.getApellido() + " " + clienteEncontrado.getcorreoElectronico() + " ";;
             mostrarClientes.setText(datosClientes);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún cliente con ese documento.");
