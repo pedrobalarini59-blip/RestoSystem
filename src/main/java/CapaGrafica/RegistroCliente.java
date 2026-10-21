@@ -12,14 +12,14 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario propietario
  */
-public class Registro extends javax.swing.JFrame {
+public class RegistroCliente extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroCliente.class.getName());
     private Clientes gestorClientes = new Clientes();
     /**
      * Creates new form Registro
      */
-    public Registro() {
+    public RegistroCliente() {
         initComponents();
     }
 
@@ -235,7 +235,7 @@ public class Registro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form 
-        java.awt.EventQueue.invokeLater(() -> new Registro().setVisible(true)); */
+        java.awt.EventQueue.invokeLater(() -> new RegistroCliente().setVisible(true)); */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -174,7 +174,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuClientesRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClientesRegistrarActionPerformed
         // TODO add your handling code here:
-        Registro ventanaRegistro = new Registro();
+        RegistroCliente ventanaRegistro = new RegistroCliente();
                 ventanaRegistro.setVisible(true);
     }//GEN-LAST:event_MenuClientesRegistrarActionPerformed
 
