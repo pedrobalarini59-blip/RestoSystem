@@ -13,16 +13,18 @@ public class BuscarCliente extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarCliente.class.getName());
 
     private void TodosLosClientes(){
-        java.util.List<CapaLogica.Cliente> listaClientes = CapaLogica.getlistaClientes();
+        java.util.List<CapaLogica.Cliente> listaClientes = CapaLogica.Clientes.getlistaClientes();
         
         if (listaClientes.isEmpty()){
             TodosLosClientes.setText("no hay clientes registrados");
+            return;
         }
         
         String clientes = "";
         for (CapaLogica.Cliente c : listaClientes){
             clientes = c.getNombre();
         }
+        TodosLosClientes.setText(clientes);
     }
     public BuscarCliente() {
         initComponents();
