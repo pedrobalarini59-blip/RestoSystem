@@ -20,14 +20,18 @@ public class BuscarCliente extends javax.swing.JFrame {
             return;
         }
         
-        String clientes = "";
+        StringBuilder clientes = new StringBuilder();
+        
+        
         for (CapaLogica.Cliente c : listaClientes){
-            clientes = c.getNombre();
+          clientes.append("Documento: ").append(c.getNombre());
+          clientes.append("Cliente: ").append(c.getNombre());
         }
         TodosLosClientes.setText(clientes);
     }
     public BuscarCliente() {
         initComponents();
+        TodosLosClientes();
     }
 
     /**
@@ -93,14 +97,15 @@ public class BuscarCliente extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addContainerGap(123, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(150, 150, 150))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(61, 61, 61))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
