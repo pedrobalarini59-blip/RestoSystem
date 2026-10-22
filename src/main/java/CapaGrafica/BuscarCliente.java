@@ -16,7 +16,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         java.util.List<CapaLogica.Cliente> listaClientes = CapaLogica.Clientes.getlistaClientes();
         
         if (listaClientes.isEmpty()){
-            TodosLosClientes.setText("no hay clientes registrados");
+            todosLosClientes.setText("no hay clientes registrados");
             return;
         }
         
@@ -27,7 +27,7 @@ public class BuscarCliente extends javax.swing.JFrame {
           clientes.append("Documento: ").append(c.getNombre());
           clientes.append("Cliente: ").append(c.getNombre());
         }
-        TodosLosClientes.setText(clientes);
+        todosLosClientes.setText(clientes.toString());
     }
     public BuscarCliente() {
         initComponents();
@@ -53,13 +53,13 @@ public class BuscarCliente extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         mostrarClientes = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        TodosLosClientes = new javax.swing.JTextArea();
+        todosLosClientes = new javax.swing.JTextArea();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Documento");
 
@@ -79,10 +79,10 @@ public class BuscarCliente extends javax.swing.JFrame {
         mostrarClientes.setRows(5);
         jScrollPane2.setViewportView(mostrarClientes);
 
-        TodosLosClientes.setEditable(false);
-        TodosLosClientes.setColumns(20);
-        TodosLosClientes.setRows(5);
-        jScrollPane3.setViewportView(TodosLosClientes);
+        todosLosClientes.setEditable(false);
+        todosLosClientes.setColumns(20);
+        todosLosClientes.setRows(5);
+        jScrollPane3.setViewportView(todosLosClientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,7 +188,6 @@ mostrarClientes.setText("");
     }
 // skibidisigmapomnidigitalfornitechamba
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea TodosLosClientes;
     private javax.swing.JTextField documentoClienteBuscado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -199,5 +198,6 @@ mostrarClientes.setText("");
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea mostrarClientes;
+    private javax.swing.JTextArea todosLosClientes;
     // End of variables declaration//GEN-END:variables
 }

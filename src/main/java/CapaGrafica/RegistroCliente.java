@@ -62,7 +62,7 @@ public class RegistroCliente extends javax.swing.JFrame {
         jTextField8.setText("jTextField1");
         jTextField8.addActionListener(this::jTextField8ActionPerformed);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         NombreJlabel.setText("Nombre");
 
@@ -227,6 +227,11 @@ public class RegistroCliente extends javax.swing.JFrame {
         );
         gestorClientes.agregarCliente(nuevoCliente);
         JOptionPane.showMessageDialog(this, "Cliente agregado exitosamente");
+        textDocumentoCliente.setText("");
+        textNombreCliente.setText("");
+         textApellidoCliente.setText("");
+         textCorreoElectronicoCliente.setText("");
+          textTelefonoCliente.setText("");  
     }//GEN-LAST:event_botonRegistrarClienteActionPerformed
 
     /**

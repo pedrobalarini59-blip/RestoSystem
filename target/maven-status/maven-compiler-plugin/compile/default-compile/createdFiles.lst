@@ -1,15 +1,13 @@
 CapaLogica\Empleado.class
-CapaGrafica\TablaCliente$2.class
 CapaLogica\Mozo.class
-CapaGrafica\Registro.class
 CapaLogica\Reserva.class
 CapaLogica\LineaPedido.class
 CapaLogica\EstadoPedido.class
+CapaGrafica\RegistroRestaurante.class
 CapaLogica\Plato.class
 CapaGrafica\BuscarCliente.class
+CapaGrafica\RegistroCliente.class
 CapaLogica\RestoSystem.class
-CapaGrafica\TablaCliente.class
-CapaGrafica\TablaCliente$1.class
 CapaLogica\Clientes.class
 CapaGrafica\Menu.class
 CapaLogica\Cocinero.class
