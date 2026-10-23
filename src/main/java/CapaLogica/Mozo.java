@@ -5,7 +5,7 @@ import java.util.List;
 public class Mozo extends Empleado {
     private List<Pedido> pedidosAtendidos;
     
-    public Mozo(String id, String nombre, String cargo, int fechaIngreso) {
+    public Mozo(int id, String nombre, String cargo, int fechaIngreso) {
        super(id, nombre, cargo, fechaIngreso);
     }
     
