@@ -80,17 +80,20 @@ public class BuscarCliente extends javax.swing.JFrame {
         jButton2.setText("Buscar");
         jButton2.addActionListener(this::jButton2ActionPerformed);
 
+        documentoClienteBuscado.setBackground(new java.awt.Color(255, 255, 255));
         documentoClienteBuscado.addActionListener(this::documentoClienteBuscadoActionPerformed);
 
         jButton3.setText("Borrar");
         jButton3.addActionListener(this::jButton3ActionPerformed);
 
         mostrarClientes.setEditable(false);
+        mostrarClientes.setBackground(new java.awt.Color(255, 255, 255));
         mostrarClientes.setColumns(20);
         mostrarClientes.setRows(5);
         jScrollPane2.setViewportView(mostrarClientes);
 
         todosLosClientes.setEditable(false);
+        todosLosClientes.setBackground(new java.awt.Color(255, 255, 255));
         todosLosClientes.setColumns(20);
         todosLosClientes.setRows(5);
         jScrollPane3.setViewportView(todosLosClientes);
