@@ -4,6 +4,11 @@
  */
 package CapaGrafica;
 
+import CapaLogica.Cliente;
+import CapaLogica.Clientes;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -11,27 +16,33 @@ package CapaGrafica;
 public class BuscarCliente extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarCliente.class.getName());
-
-    private void TodosLosClientes(){
-        java.util.List<CapaLogica.Cliente> listaClientes = CapaLogica.Clientes.getlistaClientes();
+    
+    public BuscarCliente() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        // Cargar la lista al iniciar
+        cargarTodosLosClientes();
+    }
+    
+    public void cargarTodosLosClientes() {
+        List<Cliente> lista = Clientes.getListaClientes();
         
-        if (listaClientes.isEmpty()){
-            todosLosClientes.setText("no hay clientes registrados");
+        if (lista.isEmpty()) {
+            jTextArea1.setText("No hay clientes registrados en el sistema.");
             return;
         }
         
-        StringBuilder clientes = new StringBuilder();
+        StringBuilder texto = new StringBuilder();
+        texto.append("--- LISTA COMPLETA DE CLIENTES ---\n\n");
         
-        
-        for (CapaLogica.Cliente c : listaClientes){
-          clientes.append("Documento: ").append(c.getNombre());
-          clientes.append("Cliente: ").append(c.getNombre());
+        for (Cliente c : lista) {
+            texto.append("Documento: ").append(c.getDocumento()).append("\n");
+            texto.append("Nombre: ").append(c.getNombre()).append(" ").append(c.getApellido()).append("\n");
+            texto.append("Teléfono: ").append(c.getTelefono()).append("\n");
+            texto.append("----------------------------------\n");
         }
-        todosLosClientes.setText(clientes.toString());
-    }
-    public BuscarCliente() {
-        initComponents();
-        TodosLosClientes();
+        
+        jTextArea1.setText(texto.toString());
     }
 
     /**
@@ -137,6 +148,27 @@ public class BuscarCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String documento = documentoClienteBuscado.getText(); // Cambia si tu campo se llama jTextField1
+        
+        if (documento.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingresa un documento para buscar.");
+            return;
+        }
+        
+        Cliente clienteEncontrado = Clientes.buscarCliente(documento);
+        
+        if (clienteEncontrado != null) {
+            String datos = "--- CLIENTE ENCONTRADO ---\n\n" +
+                           "Documento: " + clienteEncontrado.getDocumento() + "\n" +
+                           "Nombre: " + clienteEncontrado.getNombre() + "\n" +
+                           "Apellido: " + clienteEncontrado.getApellido() + "\n" +
+                           "Correo: " + clienteEncontrado.getcorreoElectronico() + "\n" +
+                           "Teléfono: " + clienteEncontrado.getTelefono();
+            jTextArea1.setText(datos);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró ningún cliente con el documento: " + documento);
+            cargarTodosLosClientes(); // Volvemos a mostrar la lista si no lo encuentra
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
