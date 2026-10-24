@@ -36,11 +36,11 @@ public class RegistroCliente extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
-        NombreJlabel = new javax.swing.JLabel();
-        NombreJlabel1 = new javax.swing.JLabel();
-        NombreJlabel2 = new javax.swing.JLabel();
-        NombreJlabel3 = new javax.swing.JLabel();
-        NombreJlabel4 = new javax.swing.JLabel();
+        JLabelNombreCliente = new javax.swing.JLabel();
+        JLabelDocumentoCliente = new javax.swing.JLabel();
+        JLabelEmailCliente = new javax.swing.JLabel();
+        JLabelTelefonoCliente = new javax.swing.JLabel();
+        JLabelApellidoCliente = new javax.swing.JLabel();
         textNombreCliente = new javax.swing.JTextField();
         textDocumentoCliente = new javax.swing.JTextField();
         textCorreoElectronicoCliente = new javax.swing.JTextField();
@@ -49,6 +49,8 @@ public class RegistroCliente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         botonRegistrarCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        JTextFieldIDRestaurante = new javax.swing.JTextField();
+        JLabelIDRestaurante = new javax.swing.JLabel();
 
         jTextField3.setText("jTextField1");
         jTextField3.addActionListener(this::jTextField3ActionPerformed);
@@ -64,15 +66,15 @@ public class RegistroCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        NombreJlabel.setText("Nombre");
+        JLabelNombreCliente.setText("Nombre");
 
-        NombreJlabel1.setText("Documento");
+        JLabelDocumentoCliente.setText("Documento");
 
-        NombreJlabel2.setText("Correo Electronico");
+        JLabelEmailCliente.setText("E-mail");
 
-        NombreJlabel3.setText("Telefono");
+        JLabelTelefonoCliente.setText("Telefono");
 
-        NombreJlabel4.setText("Apellido");
+        JLabelApellidoCliente.setText("Apellido");
 
         textNombreCliente.setBackground(new java.awt.Color(255, 255, 255));
         textNombreCliente.addActionListener(this::textNombreClienteActionPerformed);
@@ -96,7 +98,12 @@ public class RegistroCliente extends javax.swing.JFrame {
         botonRegistrarCliente.addActionListener(this::botonRegistrarClienteActionPerformed);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Registro Cliente");
+        jLabel1.setText("Registrar Cliente");
+
+        JTextFieldIDRestaurante.setBackground(new java.awt.Color(255, 255, 255));
+        JTextFieldIDRestaurante.addActionListener(this::JTextFieldIDRestauranteActionPerformed);
+
+        JLabelIDRestaurante.setText("ID Restaurante");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,41 +112,44 @@ public class RegistroCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(NombreJlabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(textDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(NombreJlabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(textApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(NombreJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(textNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(NombreJlabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jButton1)
-                                                    .addGap(59, 59, 59)
-                                                    .addComponent(botonRegistrarCliente))
-                                                .addComponent(textTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(NombreJlabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButton1)
+                                .addGap(88, 88, 88)
+                                .addComponent(botonRegistrarCliente))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(JLabelEmailCliente)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(textCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JLabelApellidoCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(JLabelNombreCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(JLabelDocumentoCliente, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(textApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(75, 75, 75))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(JLabelTelefonoCliente)
+                                .addGap(18, 18, 18)
+                                .addComponent(textTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jLabel1)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addComponent(JLabelIDRestaurante)
+                        .addGap(18, 18, 18)
+                        .addComponent(JTextFieldIDRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,25 +158,29 @@ public class RegistroCliente extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreJlabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textDocumentoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreJlabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreJlabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreJlabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JTextFieldIDRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelIDRestaurante))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(botonRegistrarCliente))
@@ -234,6 +248,10 @@ public class RegistroCliente extends javax.swing.JFrame {
           textTelefonoCliente.setText("");  
     }//GEN-LAST:event_botonRegistrarClienteActionPerformed
 
+    private void JTextFieldIDRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldIDRestauranteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextFieldIDRestauranteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,11 +278,13 @@ public class RegistroCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel NombreJlabel;
-    private javax.swing.JLabel NombreJlabel1;
-    private javax.swing.JLabel NombreJlabel2;
-    private javax.swing.JLabel NombreJlabel3;
-    private javax.swing.JLabel NombreJlabel4;
+    private javax.swing.JLabel JLabelApellidoCliente;
+    private javax.swing.JLabel JLabelDocumentoCliente;
+    private javax.swing.JLabel JLabelEmailCliente;
+    private javax.swing.JLabel JLabelIDRestaurante;
+    private javax.swing.JLabel JLabelNombreCliente;
+    private javax.swing.JLabel JLabelTelefonoCliente;
+    private javax.swing.JTextField JTextFieldIDRestaurante;
     private javax.swing.JButton botonRegistrarCliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
