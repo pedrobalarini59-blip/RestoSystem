@@ -28,31 +28,114 @@ public class BuscarPlato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelTituloBuscarPlato = new javax.swing.JLabel();
+        jLabelIdentificadorBuscarPlato = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaBuscarPlato = new javax.swing.JTextArea();
+        jTextFieldIdentificadorPlatoBuscado = new javax.swing.JTextField();
+        jButtonBuscarPlato = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaTodosLosPlatos = new javax.swing.JTextArea();
+        jLabelTodosLosPlatos = new javax.swing.JLabel();
+        jButtonVolverBuscarPlato = new javax.swing.JButton();
+        jButtonBorrarPlato = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabelTituloBuscarPlato.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelTituloBuscarPlato.setText("Buscar Plato");
+
+        jLabelIdentificadorBuscarPlato.setText("Identificador");
+
+        jTextAreaBuscarPlato.setEditable(false);
+        jTextAreaBuscarPlato.setColumns(20);
+        jTextAreaBuscarPlato.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaBuscarPlato);
+
+        jTextFieldIdentificadorPlatoBuscado.addActionListener(this::jTextFieldIdentificadorPlatoBuscadoActionPerformed);
+
+        jButtonBuscarPlato.setText("Buscar");
+
+        jTextAreaTodosLosPlatos.setEditable(false);
+        jTextAreaTodosLosPlatos.setColumns(20);
+        jTextAreaTodosLosPlatos.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaTodosLosPlatos);
+
+        jLabelTodosLosPlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelTodosLosPlatos.setText("Todos los Platos:");
+
+        jButtonVolverBuscarPlato.setText("Volver");
+
+        jButtonBorrarPlato.setText("Borrar");
+        jButtonBorrarPlato.addActionListener(this::jButtonBorrarPlatoActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonVolverBuscarPlato)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonBorrarPlato))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabelTituloBuscarPlato))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelIdentificadorBuscarPlato)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jTextFieldIdentificadorPlatoBuscado)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButtonBuscarPlato))
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelTodosLosPlatos))))))
+                        .addGap(0, 28, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jLabel1)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabelTituloBuscarPlato)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelIdentificadorBuscarPlato)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldIdentificadorPlatoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBuscarPlato)
+                    .addComponent(jLabelTodosLosPlatos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVolverBuscarPlato)
+                    .addComponent(jButtonBorrarPlato))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldIdentificadorPlatoBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorPlatoBuscadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdentificadorPlatoBuscadoActionPerformed
+
+    private void jButtonBorrarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPlatoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBorrarPlatoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,6 +163,16 @@ public class BuscarPlato extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButtonBorrarPlato;
+    private javax.swing.JButton jButtonBuscarPlato;
+    private javax.swing.JButton jButtonVolverBuscarPlato;
+    private javax.swing.JLabel jLabelIdentificadorBuscarPlato;
+    private javax.swing.JLabel jLabelTituloBuscarPlato;
+    private javax.swing.JLabel jLabelTodosLosPlatos;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextAreaBuscarPlato;
+    private javax.swing.JTextArea jTextAreaTodosLosPlatos;
+    private javax.swing.JTextField jTextFieldIdentificadorPlatoBuscado;
     // End of variables declaration//GEN-END:variables
 }

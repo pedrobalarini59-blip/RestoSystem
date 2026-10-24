@@ -47,18 +47,17 @@ public class BuscarReserva extends javax.swing.JFrame {
 
         jLabelIdentificadorBuscarReserva.setText("Identificador");
 
-        jTextFieldIdentificadorReservaBuscada.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldIdentificadorReservaBuscada.addActionListener(this::jTextFieldIdentificadorReservaBuscadaActionPerformed);
 
         jButtonBuscarReserva.setText("Buscar");
         jButtonBuscarReserva.addActionListener(this::jButtonBuscarReservaActionPerformed);
 
-        jTextAreaBuscarIdentificadorReserva.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAreaBuscarIdentificadorReserva.setEditable(false);
         jTextAreaBuscarIdentificadorReserva.setColumns(20);
         jTextAreaBuscarIdentificadorReserva.setRows(5);
         jScrollPane1.setViewportView(jTextAreaBuscarIdentificadorReserva);
 
-        jTextAreaMostrarTodasLasReservas.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAreaMostrarTodasLasReservas.setEditable(false);
         jTextAreaMostrarTodasLasReservas.setColumns(20);
         jTextAreaMostrarTodasLasReservas.setRows(5);
         jScrollPane2.setViewportView(jTextAreaMostrarTodasLasReservas);
@@ -117,8 +116,8 @@ public class BuscarReserva extends javax.swing.JFrame {
                     .addComponent(jLabelTodasLasReservas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVolverBuscarReserva)
