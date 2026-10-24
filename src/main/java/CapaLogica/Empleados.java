@@ -43,10 +43,10 @@ public class Empleados {
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) {
-                return new Empleado(
-                    rs.getString("cargo"),
-                    rs.getString("nombre"),
+                return new Mozo(
                     rs.getInt("id"),
+                    rs.getString("nombre"),
+                    rs.getString("Cargo"),
                     rs.getInt("fechaIngreso")
                 );
             }
