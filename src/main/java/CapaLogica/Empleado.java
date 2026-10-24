@@ -2,23 +2,23 @@ package CapaLogica;
 
 public abstract class Empleado {
     
-    private String id;
+    private int id;
     private String nombre;
    private String cargo;
     private int fechaIngreso;
     
-    public Empleado(String id, String nombre, String cargo, int fechaIngreso) {
+    public Empleado(int id, String nombre, String cargo, int fechaIngreso) {
         this.id = id;
         this.nombre = nombre;
         this.cargo = cargo;
         this.fechaIngreso = fechaIngreso;
     }
     
-    public String getId() {
+    public int getId() {
         return id;
     }
     
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     

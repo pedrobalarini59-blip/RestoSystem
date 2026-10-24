@@ -59,18 +59,14 @@ public class RegistroEmpleado extends javax.swing.JFrame {
 
         jLabelIdentificadorEmpleado.setText("Identificador");
 
-        jTextFieldNombreEmpleado.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombreEmpleado.addActionListener(this::jTextFieldNombreEmpleadoActionPerformed);
 
-        jTextFieldIdentificadorEmpleado.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldIdentificadorEmpleado.addActionListener(this::jTextFieldIdentificadorEmpleadoActionPerformed);
 
-        jTextFieldApellidoEmpleado.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldApellidoEmpleado.addActionListener(this::jTextFieldApellidoEmpleadoActionPerformed);
 
         jLabelIDRestauranteEmpleado.setText("ID Restaurante");
 
-        jTextFieldIDRestauranteEmpleado.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldIDRestauranteEmpleado.addActionListener(this::jTextFieldIDRestauranteEmpleadoActionPerformed);
 
         jButtonCancelarEmpleado.setText("Cancelar");
@@ -81,7 +77,6 @@ public class RegistroEmpleado extends javax.swing.JFrame {
 
         jLabelFechaIngresoEmpleado.setText("Fecha de Ingreso");
 
-        jTextFieldFechaIngresoEmpleado.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaIngresoEmpleado.addActionListener(this::jTextFieldFechaIngresoEmpleadoActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,10 +107,10 @@ public class RegistroEmpleado extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextFieldNombreEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldIdentificadorEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                     .addComponent(jTextFieldApellidoEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                     .addComponent(jComboBoxCargoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldFechaIngresoEmpleado)))
+                                    .addComponent(jTextFieldFechaIngresoEmpleado)
+                                    .addComponent(jTextFieldIdentificadorEmpleado)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabelIDRestauranteEmpleado)

@@ -50,10 +50,10 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jTextFieldNombreEmpleado" pref="132" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldIdentificadorEmpleado" pref="132" max="32767" attributes="0"/>
                                   <Component id="jTextFieldApellidoEmpleado" pref="132" max="32767" attributes="0"/>
                                   <Component id="jComboBoxCargoEmpleado" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldFechaIngresoEmpleado" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldIdentificadorEmpleado" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -158,31 +158,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNombreEmpleado">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNombreEmpleadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldIdentificadorEmpleado">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdentificadorEmpleadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldApellidoEmpleado">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldApellidoEmpleadoActionPerformed"/>
       </Events>
@@ -193,11 +178,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldIDRestauranteEmpleado">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIDRestauranteEmpleadoActionPerformed"/>
       </Events>
@@ -224,11 +204,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldFechaIngresoEmpleado">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFechaIngresoEmpleadoActionPerformed"/>
       </Events>
