@@ -48,12 +48,7 @@ public class Empleados {
                     rs.getString("nombre"),
                     rs.getInt("id"),
                     rs.getInt("fechaIngreso")
-                ) {
-                    @Override
-                    public String getRol() {
-                        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-                    }
-                };
+                );
             }
         } catch (SQLException e) {
             System.err.println("Error al buscar: " + e.getMessage());
