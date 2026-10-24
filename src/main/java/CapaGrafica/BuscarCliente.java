@@ -56,15 +56,17 @@ public class BuscarCliente extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabelDocumentoBuscarCliente = new javax.swing.JLabel();
+        jButtonVolverCliente = new javax.swing.JButton();
+        jButtonBuscarCliente = new javax.swing.JButton();
         documentoClienteBuscado = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jButtonBorrarCliente = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         mostrarClientes = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         todosLosClientes = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelTodosLosClientes = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -72,81 +74,100 @@ public class BuscarCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Documento");
+        jLabelDocumentoBuscarCliente.setText("Documento");
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jButtonVolverCliente.setText("Volver");
+        jButtonVolverCliente.addActionListener(this::jButtonVolverClienteActionPerformed);
 
-        jButton2.setText("Buscar");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
+        jButtonBuscarCliente.setText("Buscar");
+        jButtonBuscarCliente.addActionListener(this::jButtonBuscarClienteActionPerformed);
 
+        documentoClienteBuscado.setBackground(new java.awt.Color(255, 255, 255));
         documentoClienteBuscado.addActionListener(this::documentoClienteBuscadoActionPerformed);
 
-        jButton3.setText("Borrar");
-        jButton3.addActionListener(this::jButton3ActionPerformed);
+        jButtonBorrarCliente.setText("Borrar");
+        jButtonBorrarCliente.addActionListener(this::jButtonBorrarClienteActionPerformed);
 
         mostrarClientes.setEditable(false);
+        mostrarClientes.setBackground(new java.awt.Color(255, 255, 255));
         mostrarClientes.setColumns(20);
         mostrarClientes.setRows(5);
         jScrollPane2.setViewportView(mostrarClientes);
 
         todosLosClientes.setEditable(false);
+        todosLosClientes.setBackground(new java.awt.Color(255, 255, 255));
         todosLosClientes.setColumns(20);
         todosLosClientes.setRows(5);
         jScrollPane3.setViewportView(todosLosClientes);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Buscar Cliente");
+
+        jLabelTodosLosClientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelTodosLosClientes.setText("Todos Los Clientes:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(documentoClienteBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addContainerGap(123, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(61, 61, 61))))
+                .addGap(9, 9, 9)
+                .addComponent(jButtonVolverCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonBorrarCliente)
+                .addGap(10, 10, 10))
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabelDocumentoBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(documentoClienteBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonBuscarCliente))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelTodosLosClientes))))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jLabelDocumentoBuscarCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTodosLosClientes, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonBuscarCliente)
+                        .addComponent(documentoClienteBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(documentoClienteBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonBorrarCliente)
+                    .addComponent(jButtonVolverCliente))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonVolverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverClienteActionPerformed
         // TODO add your handling code here:
         String documento = documentoClienteBuscado.getText(); // Cambia si tu campo se llama jTextField1
         
@@ -169,9 +190,9 @@ public class BuscarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No se encontró ningún cliente con el documento: " + documento);
             cargarTodosLosClientes(); // Volvemos a mostrar la lista si no lo encuentra
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonVolverClienteActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarClienteActionPerformed
         // TODO add your handling code here: 
         String documento = documentoClienteBuscado.getText();
         
@@ -184,15 +205,15 @@ public class BuscarCliente extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún cliente con ese documento.");
 mostrarClientes.setText("");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonBuscarClienteActionPerformed
 
     private void documentoClienteBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoClienteBuscadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_documentoClienteBuscadoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonBorrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,10 +242,12 @@ mostrarClientes.setText("");
 // skibidisigmapomnidigitalfornitechamba
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField documentoClienteBuscado;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButtonBorrarCliente;
+    private javax.swing.JButton jButtonBuscarCliente;
+    private javax.swing.JButton jButtonVolverCliente;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelDocumentoBuscarCliente;
+    private javax.swing.JLabel jLabelTodosLosClientes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

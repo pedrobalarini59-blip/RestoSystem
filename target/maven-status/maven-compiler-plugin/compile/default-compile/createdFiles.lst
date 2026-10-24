@@ -3,9 +3,11 @@ CapaLogica\Empleado.class
 CapaLogica\Mozo.class
 CapaLogica\Reserva.class
 CapaLogica\Conexion.class
+CapaGrafica\BuscarRestaurante.class
 CapaLogica\Clientes.class
 CapaGrafica\Menu.class
 CapaLogica\LineaPedido.class
+CapaGrafica\RegistroEmpleado.class
 CapaLogica\Cocinero.class
 CapaLogica\EstadoPedido.class
 CapaLogica\EstadoReserva.class
