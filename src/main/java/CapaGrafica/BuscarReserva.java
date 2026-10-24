@@ -28,32 +28,118 @@ public class BuscarReserva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelTituloBuscarReserva = new javax.swing.JLabel();
+        jLabelIdentificadorBuscarReserva = new javax.swing.JLabel();
+        jTextFieldIdentificadorReservaBuscada = new javax.swing.JTextField();
+        jButtonBuscarReserva = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaBuscarIdentificadorReserva = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaMostrarTodasLasReservas = new javax.swing.JTextArea();
+        jButtonVolverBuscarReserva = new javax.swing.JButton();
+        jButtonBorrarReserva = new javax.swing.JButton();
+        jLabelTodasLasReservas = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabelTituloBuscarReserva.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelTituloBuscarReserva.setText("Buscar Reserva");
+
+        jLabelIdentificadorBuscarReserva.setText("Identificador");
+
+        jTextFieldIdentificadorReservaBuscada.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldIdentificadorReservaBuscada.addActionListener(this::jTextFieldIdentificadorReservaBuscadaActionPerformed);
+
+        jButtonBuscarReserva.setText("Buscar");
+        jButtonBuscarReserva.addActionListener(this::jButtonBuscarReservaActionPerformed);
+
+        jTextAreaBuscarIdentificadorReserva.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAreaBuscarIdentificadorReserva.setColumns(20);
+        jTextAreaBuscarIdentificadorReserva.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaBuscarIdentificadorReserva);
+
+        jTextAreaMostrarTodasLasReservas.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAreaMostrarTodasLasReservas.setColumns(20);
+        jTextAreaMostrarTodasLasReservas.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaMostrarTodasLasReservas);
+
+        jButtonVolverBuscarReserva.setText("Volver");
+        jButtonVolverBuscarReserva.addActionListener(this::jButtonVolverBuscarReservaActionPerformed);
+
+        jButtonBorrarReserva.setText("Borrar");
+
+        jLabelTodasLasReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelTodasLasReservas.setText("Todas las Reservas:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonVolverBuscarReserva)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonBorrarReserva))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelTituloBuscarReserva)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelIdentificadorBuscarReserva)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldIdentificadorReservaBuscada)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonBuscarReserva))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTodasLasReservas))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabelTituloBuscarReserva)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jLabelIdentificadorBuscarReserva)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldIdentificadorReservaBuscada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBuscarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTodasLasReservas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVolverBuscarReserva)
+                    .addComponent(jButtonBorrarReserva))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldIdentificadorReservaBuscadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorReservaBuscadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdentificadorReservaBuscadaActionPerformed
+
+    private void jButtonBuscarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarReservaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBuscarReservaActionPerformed
+
+    private void jButtonVolverBuscarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarReservaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVolverBuscarReservaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,6 +167,16 @@ public class BuscarReserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButtonBorrarReserva;
+    private javax.swing.JButton jButtonBuscarReserva;
+    private javax.swing.JButton jButtonVolverBuscarReserva;
+    private javax.swing.JLabel jLabelIdentificadorBuscarReserva;
+    private javax.swing.JLabel jLabelTituloBuscarReserva;
+    private javax.swing.JLabel jLabelTodasLasReservas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextAreaBuscarIdentificadorReserva;
+    private javax.swing.JTextArea jTextAreaMostrarTodasLasReservas;
+    private javax.swing.JTextField jTextFieldIdentificadorReservaBuscada;
     // End of variables declaration//GEN-END:variables
 }
