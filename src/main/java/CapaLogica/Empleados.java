@@ -79,12 +79,17 @@ public class Empleados {
              ResultSet rs = st.executeQuery(sql)) {
             
             while (rs.next()) {
-                lista.add(new Empleado(
-                    rs.getString("cargo"),
-                    rs.getString("nombre"),
-                    rs.getInt("id"),
-                    rs.getInt("fechaIngreso")
-                ));
+                
+                int id = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                String cargo = rs.getString("cargo");
+                int fechaIngreso = rs.getInt("fechaIngreso");
+                
+                if (cargo.equalsIgnoreCase("Mozo")){
+                    lista.add(new Mozo(id, nombre, cargo, fechaIngreso));
+                } else {
+                    lista.add(new Cocinero(id, nombre, cargo, fechaIngreso));
+                } 
             }
         } catch (SQLException e) {
             System.err.println("Error al listar: " + e.getMessage());
