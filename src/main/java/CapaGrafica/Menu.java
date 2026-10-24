@@ -81,6 +81,7 @@ public class Menu extends javax.swing.JFrame {
         MenuEmpleado.setText("Empleado");
 
         MenuEmpleadoRegistrar.setText("Registrar");
+        MenuEmpleadoRegistrar.addActionListener(this::MenuEmpleadoRegistrarActionPerformed);
         MenuEmpleado.add(MenuEmpleadoRegistrar);
 
         MenuEmpleadoBuscar.setText("Buscar");
@@ -188,6 +189,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuEmpleadoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEmpleadoBuscarActionPerformed
         // TODO add your handling code here:
+         BuscarCliente ventanaRegistro = new BuscarCliente();
+                ventanaRegistro.setVisible(true);
     }//GEN-LAST:event_MenuEmpleadoBuscarActionPerformed
 
     private void MenuPlatosRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPlatosRegistrarActionPerformed
@@ -231,6 +234,12 @@ public class Menu extends javax.swing.JFrame {
         BuscarCliente ventanaBuscarCliente = new BuscarCliente();
         ventanaBuscarCliente.setVisible(true);
     }//GEN-LAST:event_MenuClientesBuscarActionPerformed
+
+    private void MenuEmpleadoRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEmpleadoRegistrarActionPerformed
+        // TODO add your handling code here:
+         RegistroEmpleado ventanaRegistro = new RegistroEmpleado();
+                ventanaRegistro.setVisible(true);
+    }//GEN-LAST:event_MenuEmpleadoRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
