@@ -137,7 +137,7 @@ public class BuscarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarReservaActionPerformed
 
     private void jButtonVolverBuscarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarReservaActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonVolverBuscarReservaActionPerformed
 
     /**

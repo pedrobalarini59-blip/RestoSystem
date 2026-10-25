@@ -175,7 +175,7 @@ public class RegistroEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIDRestauranteEmpleadoActionPerformed
 
     private void jButtonCancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarEmpleadoActionPerformed
 
     private void jButtonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarEmpleadoActionPerformed

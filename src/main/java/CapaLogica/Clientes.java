@@ -11,7 +11,7 @@ import java.util.List;
 public class Clientes {
     
     public static void agregarCliente(Cliente cliente) {
-        String sql = "INSERT INTO Cliente (documento, nombre, apellido, correoElectronico, telefono) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Cliente (id, nombre, apellido, correo_electronico, telefono) VALUES (?, ?, ?, ?, ?)";
         
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -29,7 +29,7 @@ public class Clientes {
     }
     
     public static Cliente buscarCliente(String documento) {
-        String sql = "SELECT * FROM Cliente WHERE documento = ?";
+        String sql = "SELECT * FROM Cliente WHERE id = ?";
         
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -39,10 +39,10 @@ public class Clientes {
             
             if (rs.next()) {
                 return new Cliente(
-                    rs.getString("documento"),
+                    rs.getString("id"),
                     rs.getString("nombre"),
                     rs.getString("apellido"),
-                    rs.getString("correoElectronico"),
+                    rs.getString("correo_electronico"),
                     rs.getString("telefono")
                 );
             }
@@ -53,7 +53,7 @@ public class Clientes {
     }
     
     public static void eliminarCliente(String documento) {
-        String sql = "DELETE FROM Cliente WHERE documento = ?";
+        String sql = "DELETE FROM Cliente WHERE id = ?";
         
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -76,10 +76,10 @@ public class Clientes {
             
             while (rs.next()) {
                 lista.add(new Cliente(
-                    rs.getString("documento"),
+                    rs.getString("id"),
                     rs.getString("nombre"),
                     rs.getString("apellido"),
-                    rs.getString("correoElectronico"),
+                    rs.getString("correo_electronico"),
                     rs.getString("telefono")
                 ));
             }

@@ -78,10 +78,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabelIdentificadorBuscarPedido" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonBuscarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldIentificaorPedidoBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3TodosLosPedidos" alignment="1" min="-2" pref="15" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonBuscarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldIentificaorPedidoBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -166,6 +168,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVolverBuscarPedidoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonBorrarPedido">
       <Properties>

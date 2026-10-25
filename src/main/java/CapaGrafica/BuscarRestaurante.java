@@ -45,7 +45,6 @@ public class BuscarRestaurante extends javax.swing.JFrame {
         TituloBuscarRestaurante.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TituloBuscarRestaurante.setText("Buscar Restaurante");
 
-        identificadorRestauranteBuscado.setBackground(new java.awt.Color(255, 255, 255));
         identificadorRestauranteBuscado.addActionListener(this::identificadorRestauranteBuscadoActionPerformed);
 
         jLabelIdentificadorBuscarRestaurante.setText("Identificador");
@@ -63,6 +62,7 @@ public class BuscarRestaurante extends javax.swing.JFrame {
         jScrollPane2.setViewportView(mostrarTodosLosRestaurantes);
 
         jButtonVolverBuscarRestaurante.setText("Volver");
+        jButtonVolverBuscarRestaurante.addActionListener(this::jButtonVolverBuscarRestauranteActionPerformed);
 
         jButtonBorrarRestaurante.setText("Borrar");
         jButtonBorrarRestaurante.addActionListener(this::jButtonBorrarRestauranteActionPerformed);
@@ -142,6 +142,10 @@ public class BuscarRestaurante extends javax.swing.JFrame {
     private void jButtonBuscarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarRestauranteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBuscarRestauranteActionPerformed
+
+    private void jButtonVolverBuscarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarRestauranteActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverBuscarRestauranteActionPerformed
 
     /**
      * @param args the command line arguments

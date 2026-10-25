@@ -153,7 +153,7 @@ public class RegistroMesa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIDRegistroMesaActionPerformed
 
     private void jButtonCancelarRegistroMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroMesaActionPerformed
-        // TODO add your handling code here:
+            this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroMesaActionPerformed
 
     private void jButtonRegistrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarMesaActionPerformed

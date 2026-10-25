@@ -154,7 +154,7 @@ public class RegistroRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIdentificadorRestauranteActionPerformed
 
     private void jButtonCancelarRegistroRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroRestauranteActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroRestauranteActionPerformed
 
     /**

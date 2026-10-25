@@ -47,8 +47,6 @@ public class BuscarMesa extends javax.swing.JFrame {
 
         jLabelIdentificadorBuscarMesa.setText("Identificador");
 
-        jTextFieldIdentificadorMesaBuscada.setBackground(new java.awt.Color(255, 255, 255));
-
         jButtonBuscarMesa.setText("Buscar");
         jButtonBuscarMesa.addActionListener(this::jButtonBuscarMesaActionPerformed);
 
@@ -68,6 +66,7 @@ public class BuscarMesa extends javax.swing.JFrame {
         jLabelTodasLasMesas.setText("Todas las Mesas:");
 
         jButtonVolverBuscarMesa.setText("Volver");
+        jButtonVolverBuscarMesa.addActionListener(this::jButtonVolverBuscarMesaActionPerformed);
 
         jButtonBorrarMesa.setText("Borrar");
         jButtonBorrarMesa.addActionListener(this::jButtonBorrarMesaActionPerformed);
@@ -139,6 +138,10 @@ public class BuscarMesa extends javax.swing.JFrame {
     private void jButtonBorrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarMesaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBorrarMesaActionPerformed
+
+    private void jButtonVolverBuscarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarMesaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverBuscarMesaActionPerformed
 
     /**
      * @param args the command line arguments

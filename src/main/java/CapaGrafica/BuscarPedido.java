@@ -65,6 +65,7 @@ public class BuscarPedido extends javax.swing.JFrame {
         jLabel3TodosLosPedidos.setText("Todos los Pedidos:");
 
         jButtonVolverBuscarPedido.setText("Volver");
+        jButtonVolverBuscarPedido.addActionListener(this::jButtonVolverBuscarPedidoActionPerformed);
 
         jButtonBorrarPedido.setText("Borrar");
 
@@ -113,10 +114,11 @@ public class BuscarPedido extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelIdentificadorBuscarPedido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonBuscarPedido)
-                    .addComponent(jTextFieldIentificaorPedidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3TodosLosPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3TodosLosPedidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonBuscarPedido)
+                        .addComponent(jTextFieldIentificaorPedidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
@@ -134,6 +136,10 @@ public class BuscarPedido extends javax.swing.JFrame {
     private void jTextFieldIentificaorPedidoBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIentificaorPedidoBuscadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIentificaorPedidoBuscadoActionPerformed
+
+    private void jButtonVolverBuscarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarPedidoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverBuscarPedidoActionPerformed
 
     /**
      * @param args the command line arguments

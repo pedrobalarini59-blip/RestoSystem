@@ -181,9 +181,21 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuMesasRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMesasRegistrarActionPerformed
         // TODO add your handling code here:
+        
+        
+         RegistroMesa ventanaRegistro = new RegistroMesa();
+                ventanaRegistro.setVisible(true);
+
     }//GEN-LAST:event_MenuMesasRegistrarActionPerformed
 
     private void MenuRestauranteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRestauranteBuscarActionPerformed
+
+
+ BuscarRestaurante ventanaBuscar = new BuscarRestaurante();
+                ventanaBuscar.setVisible(true);
+
+
+
         // TODO add your handling code here: 
     }//GEN-LAST:event_MenuRestauranteBuscarActionPerformed
 
@@ -195,26 +207,41 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuPlatosRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPlatosRegistrarActionPerformed
         // TODO add your handling code here:
+        RegistroPlato ventanaRegistro = new RegistroPlato();
+                ventanaRegistro.setVisible(true);
+
     }//GEN-LAST:event_MenuPlatosRegistrarActionPerformed
 
     private void MenuPlatosBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPlatosBuscarActionPerformed
         // TODO add your handling code here:
+             BuscarPlato ventanaBuscar = new BuscarPlato();
+                ventanaBuscar.setVisible(true);
     }//GEN-LAST:event_MenuPlatosBuscarActionPerformed
 
     private void MenuPedidosRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPedidosRegistrarActionPerformed
         // TODO add your handling code here:
+             RegistroPedido ventanaRegistro = new RegistroPedido();
+                ventanaRegistro.setVisible(true);
     }//GEN-LAST:event_MenuPedidosRegistrarActionPerformed
 
     private void MenuPedidosBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPedidosBuscarActionPerformed
         // TODO add your handling code here:
+             BuscarPedido ventanaBuscar = new BuscarPedido();
+                ventanaBuscar.setVisible(true);
     }//GEN-LAST:event_MenuPedidosBuscarActionPerformed
 
     private void MenuReservasRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuReservasRegistrarActionPerformed
         // TODO add your handling code here:
+         RegistroReserva ventanaRegistro = new RegistroReserva();
+                ventanaRegistro.setVisible(true);
+
     }//GEN-LAST:event_MenuReservasRegistrarActionPerformed
 
     private void MenuReservasBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuReservasBuscarActionPerformed
         // TODO add your handling code here:
+        BuscarReserva ventanaBuscar = new BuscarReserva();
+                ventanaBuscar.setVisible(true);
+
     }//GEN-LAST:event_MenuReservasBuscarActionPerformed
 
     private void CerrarMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarMenuPrincipalActionPerformed
@@ -223,9 +250,17 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuMesasBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMesasBuscarActionPerformed
         // TODO add your handling code here:
+         BuscarMesa ventanaBuscar = new BuscarMesa();
+                ventanaBuscar.setVisible(true);
+
     }//GEN-LAST:event_MenuMesasBuscarActionPerformed
 
     private void MenuRestauranteRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRestauranteRegistrarActionPerformed
+
+ RegistroRestaurante ventanaRegistro = new RegistroRestaurante();
+                ventanaRegistro.setVisible(true);
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuRestauranteRegistrarActionPerformed
 

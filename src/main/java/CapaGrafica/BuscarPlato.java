@@ -65,6 +65,7 @@ public class BuscarPlato extends javax.swing.JFrame {
         jLabelTodosLosPlatos.setText("Todos los Platos:");
 
         jButtonVolverBuscarPlato.setText("Volver");
+        jButtonVolverBuscarPlato.addActionListener(this::jButtonVolverBuscarPlatoActionPerformed);
 
         jButtonBorrarPlato.setText("Borrar");
         jButtonBorrarPlato.addActionListener(this::jButtonBorrarPlatoActionPerformed);
@@ -111,10 +112,11 @@ public class BuscarPlato extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelIdentificadorBuscarPlato)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldIdentificadorPlatoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscarPlato)
-                    .addComponent(jLabelTodosLosPlatos))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTodosLosPlatos, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldIdentificadorPlatoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonBuscarPlato)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
@@ -136,6 +138,10 @@ public class BuscarPlato extends javax.swing.JFrame {
     private void jButtonBorrarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPlatoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBorrarPlatoActionPerformed
+
+    private void jButtonVolverBuscarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarPlatoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverBuscarPlatoActionPerformed
 
     /**
      * @param args the command line arguments
