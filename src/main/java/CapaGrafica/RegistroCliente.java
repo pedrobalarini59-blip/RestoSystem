@@ -227,25 +227,27 @@ public class RegistroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_textTelefonoClienteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botonRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarClienteActionPerformed
         // TODO add your handling code here:
-        Cliente nuevoCliente = new Cliente(
-        textDocumentoCliente.getText(),
-        textNombreCliente.getText(),
-        textApellidoCliente.getText(),
-        textCorreoElectronicoCliente.getText(),
-        textTelefonoCliente.getText()
-        );
-        gestorClientes.agregarCliente(nuevoCliente);
-        JOptionPane.showMessageDialog(this, "Cliente agregado exitosamente");
-        textDocumentoCliente.setText("");
-        textNombreCliente.setText("");
-         textApellidoCliente.setText("");
-         textCorreoElectronicoCliente.setText("");
-          textTelefonoCliente.setText("");  
+      Cliente nuevoCliente = new Cliente(
+    textDocumentoCliente.getText(),
+    textNombreCliente.getText(),
+    textApellidoCliente.getText(),
+    textCorreoElectronicoCliente.getText(),
+    textTelefonoCliente.getText(),
+    JTextFieldIDRestaurante.getText()
+);
+gestorClientes.agregarCliente(nuevoCliente);
+JOptionPane.showMessageDialog(this, "Cliente agregado exitosamente");
+textDocumentoCliente.setText("");
+textNombreCliente.setText("");
+textApellidoCliente.setText("");
+textCorreoElectronicoCliente.setText("");
+textTelefonoCliente.setText("");
+JTextFieldIDRestaurante.setText("");
     }//GEN-LAST:event_botonRegistrarClienteActionPerformed
 
     private void JTextFieldIDRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldIDRestauranteActionPerformed

@@ -7,17 +7,19 @@ public class Cliente {
     private String apellido;
     private String correoElectronico;
     private String telefono;
+    private String idRestaurante;
     
     private List<Reserva> reserva;
     private List<Pedido> historialPedidos;
     
-    public Cliente(String documento, String nombre, String apellido, String correoElectronico, String telefono) {
-        this.documento = documento;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.correoElectronico = correoElectronico;
-        this.telefono = telefono;
-      }  
+    public Cliente(String documento, String nombre, String apellido, String correoElectronico, String telefono, String idRestaurante) {
+    this.documento = documento;
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.correoElectronico = correoElectronico;
+    this.telefono = telefono;
+    this.idRestaurante = idRestaurante;
+}
         
          public String getDocumento() {
         return documento;
@@ -58,7 +60,13 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+ public String getIdRestaurante() {
+        return idRestaurante;
+    }
 
+    public void setIdRestaurante(String idRestaurante) {
+        this.idRestaurante = idRestaurante;
+    }
     }
 
 

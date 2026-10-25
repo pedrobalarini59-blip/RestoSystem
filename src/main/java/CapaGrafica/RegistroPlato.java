@@ -75,6 +75,7 @@ public class RegistroPlato extends javax.swing.JFrame {
         jTextFieldPrecioRegistroPlato.addActionListener(this::jTextFieldPrecioRegistroPlatoActionPerformed);
 
         jButtonCancelarRegistroPlato.setText("Cancelar");
+        jButtonCancelarRegistroPlato.addActionListener(this::jButtonCancelarRegistroPlatoActionPerformed);
 
         jButtonRegistrarPlato.setText("Registrar");
 
@@ -168,6 +169,10 @@ public class RegistroPlato extends javax.swing.JFrame {
     private void jTextFieldIdentificadorRegistrarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorRegistrarPlatoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIdentificadorRegistrarPlatoActionPerformed
+
+    private void jButtonCancelarRegistroPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroPlatoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelarRegistroPlatoActionPerformed
 
     /**
      * @param args the command line arguments

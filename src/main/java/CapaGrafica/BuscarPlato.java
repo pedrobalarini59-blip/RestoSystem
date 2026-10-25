@@ -28,6 +28,7 @@ public class BuscarPlato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBox1 = new javax.swing.JCheckBox();
         jLabelTituloBuscarPlato = new javax.swing.JLabel();
         jLabelIdentificadorBuscarPlato = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -39,6 +40,8 @@ public class BuscarPlato extends javax.swing.JFrame {
         jLabelTodosLosPlatos = new javax.swing.JLabel();
         jButtonVolverBuscarPlato = new javax.swing.JButton();
         jButtonBorrarPlato = new javax.swing.JButton();
+
+        jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -172,6 +175,7 @@ public class BuscarPlato extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBorrarPlato;
     private javax.swing.JButton jButtonBuscarPlato;
     private javax.swing.JButton jButtonVolverBuscarPlato;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabelIdentificadorBuscarPlato;
     private javax.swing.JLabel jLabelTituloBuscarPlato;
     private javax.swing.JLabel jLabelTodosLosPlatos;

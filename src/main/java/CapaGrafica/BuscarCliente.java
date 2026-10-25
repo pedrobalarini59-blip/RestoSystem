@@ -28,21 +28,24 @@ public class BuscarCliente extends javax.swing.JFrame {
         List<Cliente> lista = Clientes.getListaClientes();
         
         if (lista.isEmpty()) {
-            jTextArea1.setText("No hay clientes registrados en el sistema.");
+            todosLosClientes.setText("No hay clientes registrados en el sistema.");
             return;
         }
         
         StringBuilder texto = new StringBuilder();
-        texto.append("--- LISTA COMPLETA DE CLIENTES ---\n\n");
+        
         
         for (Cliente c : lista) {
             texto.append("Documento: ").append(c.getDocumento()).append("\n");
             texto.append("Nombre: ").append(c.getNombre()).append(" ").append(c.getApellido()).append("\n");
+            texto.append("Correo: ").append(c.getcorreoElectronico()).append("\n");
             texto.append("Teléfono: ").append(c.getTelefono()).append("\n");
+            texto.append("ID Restaurante: ").append(c.getIdRestaurante()).append("\n");
             texto.append("----------------------------------\n");
         }
         
-        jTextArea1.setText(texto.toString());
+      todosLosClientes.setText(texto.toString());
+      todosLosClientes.setCaretPosition(0);
     }
 
     /**
@@ -169,27 +172,8 @@ public class BuscarCliente extends javax.swing.JFrame {
 
     private void jButtonVolverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverClienteActionPerformed
         // TODO add your handling code here:
-        String documento = documentoClienteBuscado.getText(); // Cambia si tu campo se llama jTextField1
-        
-        if (documento.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingresa un documento para buscar.");
-            return;
-        }
-        
-        Cliente clienteEncontrado = Clientes.buscarCliente(documento);
-        
-        if (clienteEncontrado != null) {
-            String datos = "--- CLIENTE ENCONTRADO ---\n\n" +
-                           "Documento: " + clienteEncontrado.getDocumento() + "\n" +
-                           "Nombre: " + clienteEncontrado.getNombre() + "\n" +
-                           "Apellido: " + clienteEncontrado.getApellido() + "\n" +
-                           "Correo: " + clienteEncontrado.getcorreoElectronico() + "\n" +
-                           "Teléfono: " + clienteEncontrado.getTelefono();
-            jTextArea1.setText(datos);
-        } else {
-            JOptionPane.showMessageDialog(this, "No se encontró ningún cliente con el documento: " + documento);
-            cargarTodosLosClientes(); // Volvemos a mostrar la lista si no lo encuentra
-        }
+      
+        this.dispose();
     }//GEN-LAST:event_jButtonVolverClienteActionPerformed
 
     private void jButtonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarClienteActionPerformed
@@ -199,8 +183,14 @@ public class BuscarCliente extends javax.swing.JFrame {
         CapaLogica.Cliente clienteEncontrado = CapaLogica.Clientes.buscarCliente(documento);
         
         if(clienteEncontrado != null) {
-            String datosClientes = clienteEncontrado.getDocumento() + " " + clienteEncontrado.getNombre() + " " + clienteEncontrado.getApellido() + " " + clienteEncontrado.getcorreoElectronico() + " ";;
-            mostrarClientes.setText(datosClientes);
+           String datosClientes = "Documento: " + clienteEncontrado.getDocumento() + "\n"
+                     + "Nombre: " + clienteEncontrado.getNombre() + "\n"
+                     + "Apellido: " + clienteEncontrado.getApellido() + "\n"
+                     + "Correo: " + clienteEncontrado.getcorreoElectronico() + "\n"
+                     + "Teléfono: " + clienteEncontrado.getTelefono()
+                     + "ID Restaurante: " + clienteEncontrado.getIdRestaurante();
+mostrarClientes.setText(datosClientes);
+mostrarClientes.setCaretPosition(0);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún cliente con ese documento.");
 mostrarClientes.setText("");
@@ -213,6 +203,30 @@ mostrarClientes.setText("");
 
     private void jButtonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarClienteActionPerformed
         // TODO add your handling code here:
+        String documento = documentoClienteBuscado.getText().trim();
+
+    if (documento.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ingresá el documento del cliente a borrar.");
+        return;
+    }
+
+    Cliente cliente = Clientes.buscarCliente(documento);
+    if (cliente == null) {
+        JOptionPane.showMessageDialog(this, "No existe un cliente con ese documento.");
+        return;
+    }
+
+    int confirmar = JOptionPane.showConfirmDialog(this,
+            "¿Seguro que querés borrar a " + cliente.getNombre() + " " + cliente.getApellido() + "?",
+            "Confirmar", JOptionPane.YES_NO_OPTION);
+
+    if (confirmar == JOptionPane.YES_OPTION) {
+        Clientes.eliminarCliente(documento);
+        JOptionPane.showMessageDialog(this, "Cliente borrado.");
+        documentoClienteBuscado.setText("");
+        mostrarClientes.setText("");
+        cargarTodosLosClientes();   // refresca la lista
+    }
     }//GEN-LAST:event_jButtonBorrarClienteActionPerformed
 
     /**

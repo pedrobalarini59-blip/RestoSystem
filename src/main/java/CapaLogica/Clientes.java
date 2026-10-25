@@ -11,9 +11,7 @@ import java.util.List;
 public class Clientes {
     
     public static void agregarCliente(Cliente cliente) {
-        String sql = "INSERT INTO Cliente (id, nombre, apellido, correo_electronico, telefono) VALUES (?, ?, ?, ?, ?)";
-        
-        try (Connection con = Conexion.conectar();
+       String sql = "INSERT INTO Cliente (id, nombre, apellido, correo_electronico, telefono, id_restaurante) VALUES (?, ?, ?, ?, ?, ?)";        try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
             
             ps.setString(1, cliente.getDocumento());
@@ -21,6 +19,7 @@ public class Clientes {
             ps.setString(3, cliente.getApellido());
             ps.setString(4, cliente.getcorreoElectronico());
             ps.setString(5, cliente.getTelefono());
+            ps.setString(6, cliente.getIdRestaurante());
             ps.executeUpdate();
             
         } catch (SQLException e) {
@@ -43,7 +42,9 @@ public class Clientes {
                     rs.getString("nombre"),
                     rs.getString("apellido"),
                     rs.getString("correo_electronico"),
-                    rs.getString("telefono")
+                    rs.getString("telefono"),
+                    rs.getString("id_restaurante")
+
                 );
             }
         } catch (SQLException e) {
@@ -80,7 +81,8 @@ public class Clientes {
                     rs.getString("nombre"),
                     rs.getString("apellido"),
                     rs.getString("correo_electronico"),
-                    rs.getString("telefono")
+                    rs.getString("telefono"),
+                    rs.getString("id_restaurante")
                 ));
             }
         } catch (SQLException e) {
