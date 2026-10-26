@@ -1,16 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Mesa;
+import CapaLogica.Mesas;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aemil
  */
 public class RegistroMesa extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroMesa.class.getName());
+    private Mesas gestorMesas = new Mesas();
 
     /**
      * Creates new form RegistroMesa
@@ -18,7 +19,6 @@ public class RegistroMesa extends javax.swing.JFrame {
     public RegistroMesa() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -158,6 +158,29 @@ public class RegistroMesa extends javax.swing.JFrame {
 
     private void jButtonRegistrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarMesaActionPerformed
         // TODO add your handling code here:
+          Mesa nuevaMesa = new Mesa(
+            jTextFieldIDRegistroMesa.getText(),
+            jTextFieldNumeroRegistroMesa.getText(),
+            jTextFieldCapacidadRegistroMesa.getText(),
+            jTextFieldUbicacionRegistroMesa.getText(),
+            jTextFieldIDRestauranteRegistroMesa.getText()
+        );
+        gestorMesas.agregarMesa(nuevaMesa);
+        JOptionPane.showMessageDialog(this, "Mesa agregada exitosamente");
+        jTextFieldIDRegistroMesa.setText("");
+        jTextFieldNumeroRegistroMesa.setText("");
+        jTextFieldCapacidadRegistroMesa.setText("");
+        jTextFieldUbicacionRegistroMesa.setText("");
+        jTextFieldIDRestauranteRegistroMesa.setText("");
+        
+                if (jTextFieldIDRegistroMesa.getText().trim().isEmpty()
+                || jTextFieldNumeroRegistroMesa.getText().trim().isEmpty()
+                || jTextFieldCapacidadRegistroMesa.getText().trim().isEmpty()
+                || jTextFieldUbicacionRegistroMesa.getText().trim().isEmpty()
+                || jTextFieldIDRestauranteRegistroMesa.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
+            return;
+        }
     }//GEN-LAST:event_jButtonRegistrarMesaActionPerformed
 
     /**

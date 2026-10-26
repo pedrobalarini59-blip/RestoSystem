@@ -248,6 +248,17 @@ textApellidoCliente.setText("");
 textCorreoElectronicoCliente.setText("");
 textTelefonoCliente.setText("");
 JTextFieldIDRestaurante.setText("");
+        
+
+if (textDocumentoCliente.getText().trim().isEmpty()
+                || textNombreCliente.getText().trim().isEmpty()
+                || textApellidoCliente.getText().trim().isEmpty()
+                || textCorreoElectronicoCliente.getText().trim().isEmpty()
+                || textTelefonoCliente.getText().trim().isEmpty()
+                || JTextFieldIDRestaurante.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
+            return;
+        }
     }//GEN-LAST:event_botonRegistrarClienteActionPerformed
 
     private void JTextFieldIDRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldIDRestauranteActionPerformed

@@ -2,6 +2,7 @@ CapaLogica\Empleado.class
 CapaLogica\Mozo.class
 CapaLogica\Reserva.class
 CapaLogica\LineaPedido.class
+CapaLogica\Pedidos.class
 CapaLogica\EstadoPedido.class
 CapaGrafica\RegistroMesa.class
 CapaLogica\Restaurantes.class
@@ -18,12 +19,15 @@ CapaGrafica\BuscarMesa.class
 CapaGrafica\RegistroReserva.class
 CapaGrafica\RegistroEmpleado$1.class
 CapaLogica\Conexion.class
+CapaLogica\Reservas.class
 CapaGrafica\BuscarRestaurante.class
 CapaLogica\Clientes.class
 CapaGrafica\Menu.class
 CapaGrafica\RegistroEmpleado.class
+CapaLogica\Platos.class
 CapaGrafica\RegistroPedido.class
 CapaLogica\Cocinero.class
+CapaLogica\Mesas.class
 CapaLogica\EstadoReserva.class
 CapaGrafica\BuscarPedido.class
 CapaLogica\Pedido.class

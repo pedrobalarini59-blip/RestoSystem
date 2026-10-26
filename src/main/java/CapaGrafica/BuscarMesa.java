@@ -1,24 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Mesa;
+import CapaLogica.Mesas;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aemil
  */
 public class BuscarMesa extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarMesa.class.getName());
 
-    /**
-     * Creates new form BuscarMesa
-     */
     public BuscarMesa() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        // Cargar la lista al iniciar
+        cargarTodasLasMesas();
     }
 
+    public void cargarTodasLasMesas() {
+        List<Mesa> lista = Mesas.getListaMesas();
+
+        if (lista.isEmpty()) {
+            jTextAreaTodasLasMesas.setText("No hay mesas registradas en el sistema.");
+            return;
+        }
+
+        StringBuilder texto = new StringBuilder();
+        for (Mesa m : lista) {
+            texto.append("ID: ").append(m.getId()).append("\n");
+            texto.append("Número: ").append(m.getNumero()).append("\n");
+            texto.append("Capacidad: ").append(m.getCapacidad()).append("\n");
+            texto.append("Ubicación: ").append(m.getUbicacion()).append("\n");
+            texto.append("ID Restaurante: ").append(m.getIdRestaurante()).append("\n");
+            texto.append("----------------------------------\n");
+        }
+
+        jTextAreaTodasLasMesas.setText(texto.toString());
+        jTextAreaTodasLasMesas.setCaretPosition(0);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,10 +155,51 @@ public class BuscarMesa extends javax.swing.JFrame {
 
     private void jButtonBuscarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarMesaActionPerformed
         // TODO add your handling code here:
+         
+        String id = jTextFieldIdentificadorMesaBuscada.getText();
+        CapaLogica.Mesa mesaEncontrada = CapaLogica.Mesas.buscarMesa(id);
+
+        if (mesaEncontrada != null) {
+            String datosMesa = "ID: " + mesaEncontrada.getId() + "\n"
+                    + "Número: " + mesaEncontrada.getNumero() + "\n"
+                    + "Capacidad: " + mesaEncontrada.getCapacidad() + "\n"
+                    + "Ubicación: " + mesaEncontrada.getUbicacion() + "\n"
+                    + "ID Restaurante: " + mesaEncontrada.getIdRestaurante();
+            jTextAreaMesaBuscada.setText(datosMesa);
+            jTextAreaMesaBuscada.setCaretPosition(0);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ninguna mesa con ese identificador.");
+            jTextAreaMesaBuscada.setText("");
+        }
+    
     }//GEN-LAST:event_jButtonBuscarMesaActionPerformed
 
     private void jButtonBorrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarMesaActionPerformed
         // TODO add your handling code here:
+           String id = jTextFieldIdentificadorMesaBuscada.getText().trim();
+
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresá el identificador de la mesa a borrar.");
+            return;
+        }
+
+        Mesa mesa = Mesas.buscarMesa(id);
+        if (mesa == null) {
+            JOptionPane.showMessageDialog(this, "No existe una mesa con ese identificador.");
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Seguro que querés borrar la mesa " + mesa.getNumero() + "?",
+                "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+            Mesas.eliminarMesa(id);
+            JOptionPane.showMessageDialog(this, "Mesa borrada.");
+            jTextFieldIdentificadorMesaBuscada.setText("");
+            jTextAreaMesaBuscada.setText("");
+            cargarTodasLasMesas();   // refresca la lista
+        }
     }//GEN-LAST:event_jButtonBorrarMesaActionPerformed
 
     private void jButtonVolverBuscarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarMesaActionPerformed

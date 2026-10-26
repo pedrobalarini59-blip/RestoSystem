@@ -1,22 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Pedido;
+import CapaLogica.Pedidos;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author 61566716
+ * @author aemil
  */
 public class BuscarPedido extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarPedido.class.getName());
 
-    /**
-     * Creates new form BuscarPedido
-     */
     public BuscarPedido() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        // Cargar la lista al iniciar
+        cargarTodosLosPedidos();
+    }
+
+    public void cargarTodosLosPedidos() {
+        List<Pedido> lista = Pedidos.getListaPedidos();
+
+        if (lista.isEmpty()) {
+            jTextAreaTodosLosPedidos.setText("No hay pedidos registrados en el sistema.");
+            return;
+        }
+
+        StringBuilder texto = new StringBuilder();
+        for (Pedido p : lista) {
+            texto.append("ID: ").append(p.getId_pedido()).append("\n");
+            texto.append("Fecha: ").append(p.getfecha()).append("\n");
+            texto.append("Hora: ").append(p.gethora()).append("\n");
+            texto.append("Total: ").append(p.getTotal()).append("\n");
+            texto.append("Estado: ").append(p.getEstado()).append("\n");
+            texto.append("ID Restaurante: ").append(p.getIdRestaurante()).append("\n");
+            texto.append("----------------------------------\n");
+        }
+
+        jTextAreaTodosLosPedidos.setText(texto.toString());
+        jTextAreaTodosLosPedidos.setCaretPosition(0);
     }
 
     /**
@@ -60,6 +84,7 @@ public class BuscarPedido extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextAreaTodosLosPedidos);
 
         jButtonBuscarPedido.setText("Buscar");
+        jButtonBuscarPedido.addActionListener(this::jButtonBuscarPedidoActionPerformed);
 
         jLabel3TodosLosPedidos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3TodosLosPedidos.setText("Todos los Pedidos:");
@@ -68,6 +93,7 @@ public class BuscarPedido extends javax.swing.JFrame {
         jButtonVolverBuscarPedido.addActionListener(this::jButtonVolverBuscarPedidoActionPerformed);
 
         jButtonBorrarPedido.setText("Borrar");
+        jButtonBorrarPedido.addActionListener(this::jButtonBorrarPedidoActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,6 +166,54 @@ public class BuscarPedido extends javax.swing.JFrame {
     private void jButtonVolverBuscarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarPedidoActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonVolverBuscarPedidoActionPerformed
+
+    private void jButtonBuscarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarPedidoActionPerformed
+        // TODO add your handling code here:
+            String id = jTextFieldIentificaorPedidoBuscado.getText();
+        CapaLogica.Pedido pedidoEncontrado = CapaLogica.Pedidos.buscarPedido(id);
+
+        if (pedidoEncontrado != null) {
+            String datosPedido = "ID: " + pedidoEncontrado.getId_pedido() + "\n"
+                    + "Fecha: " + pedidoEncontrado.getfecha() + "\n"
+                    + "Hora: " + pedidoEncontrado.gethora() + "\n"
+                    + "Total: " + pedidoEncontrado.getTotal() + "\n"
+                    + "Estado: " + pedidoEncontrado.getEstado() + "\n"
+                    + "ID Restaurante: " + pedidoEncontrado.getIdRestaurante();
+            jTextAreaBuscarPlato.setText(datosPedido);
+            jTextAreaBuscarPlato.setCaretPosition(0);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún pedido con ese identificador.");
+            jTextAreaBuscarPlato.setText("");
+        }
+    }//GEN-LAST:event_jButtonBuscarPedidoActionPerformed
+
+    private void jButtonBorrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPedidoActionPerformed
+        // TODO add your handling code here:
+          String id = jTextFieldIentificaorPedidoBuscado.getText().trim();
+
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresá el identificador del pedido a borrar.");
+            return;
+        }
+
+        Pedido pedido = Pedidos.buscarPedido(id);
+        if (pedido == null) {
+            JOptionPane.showMessageDialog(this, "No existe un pedido con ese identificador.");
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Seguro que querés borrar el pedido " + pedido.getId_pedido() + "?",
+                "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+            Pedidos.eliminarPedido(id);
+            JOptionPane.showMessageDialog(this, "Pedido borrado.");
+            jTextFieldIentificaorPedidoBuscado.setText("");
+            jTextAreaBuscarPlato.setText("");
+            cargarTodosLosPedidos();   // refresca la lista
+        }
+    }//GEN-LAST:event_jButtonBorrarPedidoActionPerformed
 
     /**
      * @param args the command line arguments

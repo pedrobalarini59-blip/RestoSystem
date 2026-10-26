@@ -1,24 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Pedido;
+import CapaLogica.Pedidos;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author 61566716
+ * @author aemil
  */
 public class RegistroPedido extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroPedido.class.getName());
+    private Pedidos gestorPedidos = new Pedidos();
 
     /**
-     * Creates new form RegistrarPedido
+     * Creates new form RegistroPedido
      */
     public RegistroPedido() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,6 +82,7 @@ public class RegistroPedido extends javax.swing.JFrame {
         jTextFieldIDRestauranteRegistroPedido.addActionListener(this::jTextFieldIDRestauranteRegistroPedidoActionPerformed);
 
         jButtonRegistrarPedido.setText("Registrar");
+        jButtonRegistrarPedido.addActionListener(this::jButtonRegistrarPedidoActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,6 +182,35 @@ public class RegistroPedido extends javax.swing.JFrame {
     private void jTextFieldIDRestauranteRegistroPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIDRestauranteRegistroPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIDRestauranteRegistroPedidoActionPerformed
+
+    private void jButtonRegistrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPedidoActionPerformed
+        // TODO add your handling code here:
+          if (jTextFieldIdentificadorRegistroPedido.getText().trim().isEmpty()
+                || jTextFieldFechaRegistroPedido.getText().trim().isEmpty()
+                || jTextFieldHoraRegistroPedido.getText().trim().isEmpty()
+                || jTextFieldPrecioTotalRegistroPedido.getText().trim().isEmpty()
+                || jTextFieldIDRestauranteRegistroPedido.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
+            return;
+        }
+
+        Pedido nuevoPedido = new Pedido(
+            jTextFieldIdentificadorRegistroPedido.getText(),
+            jTextFieldFechaRegistroPedido.getText(),
+            jTextFieldHoraRegistroPedido.getText(),
+            jTextFieldPrecioTotalRegistroPedido.getText(),
+            jComboBoxEstadoRegistroPedido.getSelectedItem().toString(),
+            jTextFieldIDRestauranteRegistroPedido.getText()
+        );
+        gestorPedidos.agregarPedido(nuevoPedido);
+        JOptionPane.showMessageDialog(this, "Pedido agregado exitosamente");
+        jTextFieldIdentificadorRegistroPedido.setText("");
+        jTextFieldFechaRegistroPedido.setText("");
+        jTextFieldHoraRegistroPedido.setText("");
+        jTextFieldPrecioTotalRegistroPedido.setText("");
+        jTextAreaIncluyeRegistroPedido.setText("");
+        jTextFieldIDRestauranteRegistroPedido.setText("");
+    }//GEN-LAST:event_jButtonRegistrarPedidoActionPerformed
 
     /**
      * @param args the command line arguments

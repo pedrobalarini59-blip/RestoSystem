@@ -1,19 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Plato;
+import CapaLogica.Platos;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author 61566716
+ * @author aemil
  */
 public class RegistroPlato extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroPlato.class.getName());
+    private Platos gestorPlatos = new Platos();
 
     /**
-     * Creates new form RegistrarPlato
+     * Creates new form RegistroPlato
      */
     public RegistroPlato() {
         initComponents();
@@ -78,6 +79,7 @@ public class RegistroPlato extends javax.swing.JFrame {
         jButtonCancelarRegistroPlato.addActionListener(this::jButtonCancelarRegistroPlatoActionPerformed);
 
         jButtonRegistrarPlato.setText("Registrar");
+        jButtonRegistrarPlato.addActionListener(this::jButtonRegistrarPlatoActionPerformed);
 
         jComboBoxCategoriaRegistroPlato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Principal", "Guarnicion", "Postre", "Bebida" }));
 
@@ -173,6 +175,39 @@ public class RegistroPlato extends javax.swing.JFrame {
     private void jButtonCancelarRegistroPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroPlatoActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroPlatoActionPerformed
+
+    private void jButtonRegistrarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPlatoActionPerformed
+        // TODO add your handling code here:
+           if (jTextFieldIdentificadorRegistrarPlato.getText().trim().isEmpty()
+                || jTextFieldNombreRegistroPlato.getText().trim().isEmpty()
+                || jTextFieldPrecioRegistroPlato.getText().trim().isEmpty()
+                || jTextAreaDescripcionRegistroPlato.getText().trim().isEmpty()
+                || jTextFieldIRestauranteRegistroPlato.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
+            return;
+        }
+
+        if (jTextAreaDescripcionRegistroPlato.getText().trim().length() > 30) {
+            JOptionPane.showMessageDialog(this, "La descripción no puede tener más de 30 caracteres.");
+            return;
+        }
+
+        Plato nuevoPlato = new Plato(
+            jTextFieldIdentificadorRegistrarPlato.getText(),
+            jTextFieldNombreRegistroPlato.getText(),
+            jTextFieldPrecioRegistroPlato.getText(),
+            jTextAreaDescripcionRegistroPlato.getText().trim(),
+            jComboBoxCategoriaRegistroPlato.getSelectedItem().toString(),
+            jTextFieldIRestauranteRegistroPlato.getText()
+        );
+        Platos.agregarPlato(nuevoPlato);
+        JOptionPane.showMessageDialog(this, "Plato agregado exitosamente");
+        jTextFieldIdentificadorRegistrarPlato.setText("");
+        jTextFieldNombreRegistroPlato.setText("");
+        jTextFieldPrecioRegistroPlato.setText("");
+        jTextAreaDescripcionRegistroPlato.setText("");
+        jTextFieldIRestauranteRegistroPlato.setText("");
+    }//GEN-LAST:event_jButtonRegistrarPlatoActionPerformed
 
     /**
      * @param args the command line arguments

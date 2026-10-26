@@ -1,24 +1,47 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Plato;
+import CapaLogica.Platos;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author 61566716
+ * @author aemil
  */
 public class BuscarPlato extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarPlato.class.getName());
 
-    /**
-     * Creates new form BuscarPlato
-     */
     public BuscarPlato() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        // Cargar la lista al iniciar
+        cargarTodosLosPlatos();
     }
 
+    public void cargarTodosLosPlatos() {
+        List<Plato> lista = Platos.getListaPlatos();
+
+        if (lista.isEmpty()) {
+            jTextAreaTodosLosPlatos.setText("No hay platos registrados en el sistema.");
+            return;
+        }
+
+        StringBuilder texto = new StringBuilder();
+        for (Plato p : lista) {
+            texto.append("ID: ").append(p.getId_plato()).append("\n");
+            texto.append("Nombre: ").append(p.getNombre()).append("\n");
+            texto.append("Precio: ").append(p.getPrecio()).append("\n");
+            texto.append("Descripción: ").append(p.getDescripcion()).append("\n");
+            texto.append("Categoría: ").append(p.getCategoria()).append("\n");
+            texto.append("ID Restaurante: ").append(p.getIdRestaurante()).append("\n");
+            texto.append("----------------------------------\n");
+        }
+
+        jTextAreaTodosLosPlatos.setText(texto.toString());
+        jTextAreaTodosLosPlatos.setCaretPosition(0);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +66,7 @@ public class BuscarPlato extends javax.swing.JFrame {
 
         jCheckBox1.setText("jCheckBox1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelTituloBuscarPlato.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelTituloBuscarPlato.setText("Buscar Plato");
@@ -58,6 +81,7 @@ public class BuscarPlato extends javax.swing.JFrame {
         jTextFieldIdentificadorPlatoBuscado.addActionListener(this::jTextFieldIdentificadorPlatoBuscadoActionPerformed);
 
         jButtonBuscarPlato.setText("Buscar");
+        jButtonBuscarPlato.addActionListener(this::jButtonBuscarPlatoActionPerformed);
 
         jTextAreaTodosLosPlatos.setEditable(false);
         jTextAreaTodosLosPlatos.setColumns(20);
@@ -140,11 +164,57 @@ public class BuscarPlato extends javax.swing.JFrame {
 
     private void jButtonBorrarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPlatoActionPerformed
         // TODO add your handling code here:
+         
+        String id = jTextFieldIdentificadorPlatoBuscado.getText().trim();
+
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresá el identificador del plato a borrar.");
+            return;
+        }
+
+        Plato plato = Platos.buscarPlato(id);
+        if (plato == null) {
+            JOptionPane.showMessageDialog(this, "No existe un plato con ese identificador.");
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Seguro que querés borrar " + plato.getNombre() + "?",
+                "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+            Platos.eliminarPlato(id);
+            JOptionPane.showMessageDialog(this, "Plato borrado.");
+            jTextFieldIdentificadorPlatoBuscado.setText("");
+            jTextAreaBuscarPlato.setText("");
+            cargarTodosLosPlatos();   // refresca la lista
+        }
+    
     }//GEN-LAST:event_jButtonBorrarPlatoActionPerformed
 
     private void jButtonVolverBuscarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarPlatoActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonVolverBuscarPlatoActionPerformed
+
+    private void jButtonBuscarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarPlatoActionPerformed
+        // TODO add your handling code here:
+          String id = jTextFieldIdentificadorPlatoBuscado.getText();
+        CapaLogica.Plato platoEncontrado = CapaLogica.Platos.buscarPlato(id);
+
+        if (platoEncontrado != null) {
+            String datosPlato = "ID: " + platoEncontrado.getId_plato() + "\n"
+                    + "Nombre: " + platoEncontrado.getNombre() + "\n"
+                    + "Precio: " + platoEncontrado.getPrecio() + "\n"
+                    + "Descripción: " + platoEncontrado.getDescripcion() + "\n"
+                    + "Categoría: " + platoEncontrado.getCategoria() + "\n"
+                    + "ID Restaurante: " + platoEncontrado.getIdRestaurante();
+            jTextAreaBuscarPlato.setText(datosPlato);
+            jTextAreaBuscarPlato.setCaretPosition(0);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún plato con ese identificador.");
+            jTextAreaBuscarPlato.setText("");
+        }
+    }//GEN-LAST:event_jButtonBuscarPlatoActionPerformed
 
     /**
      * @param args the command line arguments

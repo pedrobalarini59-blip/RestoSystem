@@ -1,66 +1,76 @@
-
 package CapaLogica;
 
-import java.time.LocalTime;
-
-
 public class Reserva {
-    
+
     private String id;
-    private LocalTime fecha; 
-    private  LocalTime hora;
-    private int cantidadComensales;
-    private EstadoReserva estado;
-    
-    public Reserva(String id, LocalTime fecha, LocalTime hora, int cantidadComensales, String estado) {
+    private String fecha;
+    private String hora;
+    private String cantidadComensales;
+    private String estado;
+    private String idRestaurante;
+
+    public Reserva(String id, String fecha, String hora, String cantidadComensales, String estado, String idRestaurante) {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
         this.cantidadComensales = cantidadComensales;
-        this.estado = EstadoReserva.CONFIRMADA;
+        this.estado = estado;
+        this.idRestaurante = idRestaurante;
     }
-    
+
     public void cancelarReserva() {
-        this.estado = EstadoReserva.CANCELADA;
+        this.estado = EstadoReserva.CANCELADA.toString();
     }
-    
+
     public void marcarReservacomocumplida() {
-        this.estado = EstadoReserva.CUMPLIDA;
+        this.estado = EstadoReserva.CUMPLIDA.toString();
     }
-    
-       public String getId() {
+
+    public String getId() {
         return id;
     }
-    
+
     public void setId(String id) {
         this.id = id;
     }
-    
-    public LocalTime getfecha() {
+
+    public String getfecha() {
         return fecha;
     }
-    
-          public void setfecha(LocalTime fecha) {
-              this.fecha = fecha;
-          }
-    
-          public LocalTime gethora() {
-              return hora;
-          }
-          
-         
-          public void sethora(LocalTime hora) {
-              this.hora = hora;
-          }
-          
-          public int getcantidadComensales() {
+
+    public void setfecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String gethora() {
+        return hora;
+    }
+
+    public void sethora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getcantidadComensales() {
         return cantidadComensales;
     }
-          
-          public void setCantidadComensales(int cantidadComensales) {
-              this.cantidadComensales = cantidadComensales;
-              
-           
-      }
-       
+
+    public void setCantidadComensales(String cantidadComensales) {
+        this.cantidadComensales = cantidadComensales;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getIdRestaurante() {
+        return idRestaurante;
+    }
+
+    public void setIdRestaurante(String idRestaurante) {
+        this.idRestaurante = idRestaurante;
+    }
 }

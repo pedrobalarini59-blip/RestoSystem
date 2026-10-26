@@ -158,19 +158,26 @@ private Restaurantes gestorRestaurantes = new Restaurantes();
 
     private void jButtonRegistrarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarRestauranteActionPerformed
         // TODO add your handling code here:
-        
+  if (jTextFieldIdentificadorRestaurante.getText().trim().isEmpty()
+                || jTextFieldNombreRestaurante.getText().trim().isEmpty()
+                || jTextFieldDireccionRestaurante.getText().trim().isEmpty()
+                || jTextFieldTelefonoRestaurante.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
+            return;
+        }
+
         Restaurante nuevoRestaurante = new Restaurante(
-    jTextFieldIdentificadorRestaurante.getText(),
-    jTextFieldNombreRestaurante.getText(),
-    jTextFieldDireccionRestaurante.getText(),
-    jTextFieldTelefonoRestaurante.getText()
-);
-gestorRestaurantes.agregarRestaurante(nuevoRestaurante);
-JOptionPane.showMessageDialog(this, "Restaurante agregado exitosamente");
-jTextFieldIdentificadorRestaurante.setText("");
-jTextFieldNombreRestaurante.setText("");
-jTextFieldDireccionRestaurante.setText("");
-jTextFieldTelefonoRestaurante.setText("");
+            jTextFieldIdentificadorRestaurante.getText(),
+            jTextFieldNombreRestaurante.getText(),
+            jTextFieldDireccionRestaurante.getText(),
+            jTextFieldTelefonoRestaurante.getText()
+        );
+        gestorRestaurantes.agregarRestaurante(nuevoRestaurante);
+        JOptionPane.showMessageDialog(this, "Restaurante agregado exitosamente");
+        jTextFieldIdentificadorRestaurante.setText("");
+        jTextFieldNombreRestaurante.setText("");
+        jTextFieldDireccionRestaurante.setText("");
+        jTextFieldTelefonoRestaurante.setText("");
     }//GEN-LAST:event_jButtonRegistrarRestauranteActionPerformed
 
     /**

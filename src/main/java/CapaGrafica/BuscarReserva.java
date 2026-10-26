@@ -1,22 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Reserva;
+import CapaLogica.Reservas;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aemil
  */
 public class BuscarReserva extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarReserva.class.getName());
 
-    /**
-     * Creates new form BuscarReserva
-     */
     public BuscarReserva() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        // Cargar la lista al iniciar
+        cargarTodasLasReservas();
+    }
+
+    public void cargarTodasLasReservas() {
+        List<Reserva> lista = Reservas.getListaReservas();
+
+        if (lista.isEmpty()) {
+            jTextAreaMostrarTodasLasReservas.setText("No hay reservas registradas en el sistema.");
+            return;
+        }
+
+        StringBuilder texto = new StringBuilder();
+        for (Reserva r : lista) {
+            texto.append("ID: ").append(r.getId()).append("\n");
+            texto.append("Fecha: ").append(r.getfecha()).append("\n");
+            texto.append("Hora: ").append(r.gethora()).append("\n");
+            texto.append("Comensales: ").append(r.getcantidadComensales()).append("\n");
+            texto.append("Estado: ").append(r.getEstado()).append("\n");
+            texto.append("ID Restaurante: ").append(r.getIdRestaurante()).append("\n");
+            texto.append("----------------------------------\n");
+        }
+
+        jTextAreaMostrarTodasLasReservas.setText(texto.toString());
+        jTextAreaMostrarTodasLasReservas.setCaretPosition(0);
     }
 
     /**
@@ -66,6 +90,7 @@ public class BuscarReserva extends javax.swing.JFrame {
         jButtonVolverBuscarReserva.addActionListener(this::jButtonVolverBuscarReservaActionPerformed);
 
         jButtonBorrarReserva.setText("Borrar");
+        jButtonBorrarReserva.addActionListener(this::jButtonBorrarReservaActionPerformed);
 
         jLabelTodasLasReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelTodasLasReservas.setText("Todas las Reservas:");
@@ -134,11 +159,55 @@ public class BuscarReserva extends javax.swing.JFrame {
 
     private void jButtonBuscarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarReservaActionPerformed
         // TODO add your handling code here:
+         String id = jTextFieldIdentificadorReservaBuscada.getText();
+        CapaLogica.Reserva reservaEncontrada = CapaLogica.Reservas.buscarReserva(id);
+
+        if (reservaEncontrada != null) {
+            String datosReserva = "ID: " + reservaEncontrada.getId() + "\n"
+                    + "Fecha: " + reservaEncontrada.getfecha() + "\n"
+                    + "Hora: " + reservaEncontrada.gethora() + "\n"
+                    + "Comensales: " + reservaEncontrada.getcantidadComensales() + "\n"
+                    + "Estado: " + reservaEncontrada.getEstado() + "\n"
+                    + "ID Restaurante: " + reservaEncontrada.getIdRestaurante();
+            jTextAreaBuscarIdentificadorReserva.setText(datosReserva);
+            jTextAreaBuscarIdentificadorReserva.setCaretPosition(0);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ninguna reserva con ese identificador.");
+            jTextAreaBuscarIdentificadorReserva.setText("");
+        }
     }//GEN-LAST:event_jButtonBuscarReservaActionPerformed
 
     private void jButtonVolverBuscarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarReservaActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonVolverBuscarReservaActionPerformed
+
+    private void jButtonBorrarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarReservaActionPerformed
+        // TODO add your handling code here:
+        String id = jTextFieldIdentificadorReservaBuscada.getText().trim();
+
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresá el identificador de la reserva a borrar.");
+            return;
+        }
+
+        Reserva reserva = Reservas.buscarReserva(id);
+        if (reserva == null) {
+            JOptionPane.showMessageDialog(this, "No existe una reserva con ese identificador.");
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Seguro que querés borrar la reserva " + reserva.getId() + "?",
+                "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+            Reservas.eliminarReserva(id);
+            JOptionPane.showMessageDialog(this, "Reserva borrada.");
+            jTextFieldIdentificadorReservaBuscada.setText("");
+            jTextAreaBuscarIdentificadorReserva.setText("");
+            cargarTodasLasReservas();   // refresca la lista
+        }
+    }//GEN-LAST:event_jButtonBorrarReservaActionPerformed
 
     /**
      * @param args the command line arguments

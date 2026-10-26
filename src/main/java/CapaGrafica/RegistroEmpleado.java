@@ -205,6 +205,16 @@ public class RegistroEmpleado extends javax.swing.JFrame {
     private void jButtonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarEmpleadoActionPerformed
         // TODO add your handling code here:
            
+     if (jTextFieldIdentificadorEmpleado.getText().trim().isEmpty()
+                || jTextFieldNombreEmpleado.getText().trim().isEmpty()
+                || jTextFieldApellidoEmpleado.getText().trim().isEmpty()
+                || jTextFieldIDRestauranteEmpleado.getText().trim().isEmpty()
+                || jTextFieldFechaIngresoEmpleado.getText().trim().isEmpty()
+                || jTextFieldFechaIngresoEmpleado.getText().equals(PLACEHOLDER_FECHA)) {
+            JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
+            return;
+        }
+
         String cargo = jComboBoxCargoEmpleado.getSelectedItem().toString();
         String nombreCompleto = (jTextFieldNombreEmpleado.getText().trim() + " "
                 + jTextFieldApellidoEmpleado.getText().trim()).trim();
