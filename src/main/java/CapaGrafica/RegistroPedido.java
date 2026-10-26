@@ -47,7 +47,7 @@ public class RegistroPedido extends javax.swing.JFrame {
         jTextFieldIDRestauranteRegistroPedido = new javax.swing.JTextField();
         jButtonRegistrarPedido = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelTituloRegistrarPedido.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelTituloRegistrarPedido.setText("Registrar Pedido");
