@@ -1,3 +1,4 @@
+
 package CapaGrafica;
 
 import CapaLogica.Cocinero;
@@ -15,11 +16,33 @@ public class RegistroEmpleado extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroEmpleado.class.getName());
     private Empleados gestorEmpleados = new Empleados();
 
-    /**
-     * Creates new form RegistroEmpleado
-     */
+    private static final String PLACEHOLDER_FECHA = "AAAA-MM-DD";
+
+    private void ponerPlaceholderFecha() {
+        jTextFieldFechaIngresoEmpleado.setText(PLACEHOLDER_FECHA);
+        jTextFieldFechaIngresoEmpleado.setForeground(java.awt.Color.GRAY);
+    }
+
     public RegistroEmpleado() {
         initComponents();
+        ponerPlaceholderFecha();
+
+        jTextFieldFechaIngresoEmpleado.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (jTextFieldFechaIngresoEmpleado.getText().equals(PLACEHOLDER_FECHA)) {
+                    jTextFieldFechaIngresoEmpleado.setText("");
+                    jTextFieldFechaIngresoEmpleado.setForeground(java.awt.Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (jTextFieldFechaIngresoEmpleado.getText().trim().isEmpty()) {
+                    ponerPlaceholderFecha();
+                }
+            }
+        });
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +82,7 @@ public class RegistroEmpleado extends javax.swing.JFrame {
 
         jComboBoxCargoEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mozo", "Cocinero" }));
 
-        jLabelIdentificadorEmpleado.setText("Identificador");
+        jLabelIdentificadorEmpleado.setText("Identificador Empleado");
 
         jTextFieldNombreEmpleado.addActionListener(this::jTextFieldNombreEmpleadoActionPerformed);
 
@@ -87,39 +110,38 @@ public class RegistroEmpleado extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonCancelarEmpleado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonRegistrarEmpleado))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButtonCancelarEmpleado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonRegistrarEmpleado))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelApellidoEmpleado)
-                                    .addComponent(jLabelFechaIngresoEmpleado)
-                                    .addComponent(jLabelNombreEmpleado)
-                                    .addComponent(jLabelIdentificadorEmpleado)
-                                    .addComponent(jLabelCargoEmpleado))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldNombreEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldApellidoEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                    .addComponent(jComboBoxCargoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldFechaIngresoEmpleado)
-                                    .addComponent(jTextFieldIdentificadorEmpleado)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabelIDRestauranteEmpleado)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldIDRestauranteEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 32, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelIDRestauranteEmpleado)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldIDRestauranteEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabelApellidoEmpleado)
+                                            .addComponent(jLabelFechaIngresoEmpleado)
+                                            .addComponent(jLabelNombreEmpleado)
+                                            .addComponent(jLabelCargoEmpleado)
+                                            .addComponent(jLabelIdentificadorEmpleado))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldNombreEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldApellidoEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                            .addComponent(jComboBoxCargoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldFechaIngresoEmpleado)
+                                            .addComponent(jTextFieldIdentificadorEmpleado))))
+                                .addGap(0, 15, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,8 +154,8 @@ public class RegistroEmpleado extends javax.swing.JFrame {
                     .addComponent(jLabelIDRestauranteEmpleado))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelIdentificadorEmpleado)
-                    .addComponent(jTextFieldIdentificadorEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldIdentificadorEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelIdentificadorEmpleado))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombreEmpleado)
@@ -219,7 +241,7 @@ public class RegistroEmpleado extends javax.swing.JFrame {
         jTextFieldIdentificadorEmpleado.setText("");
         jTextFieldNombreEmpleado.setText("");
         jTextFieldApellidoEmpleado.setText("");
-        jTextFieldFechaIngresoEmpleado.setText("");
+        ponerPlaceholderFecha();
         jTextFieldIDRestauranteEmpleado.setText("");
     
     }//GEN-LAST:event_jButtonRegistrarEmpleadoActionPerformed

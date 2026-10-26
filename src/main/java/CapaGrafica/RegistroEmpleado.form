@@ -23,50 +23,51 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonCancelarEmpleado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonRegistrarEmpleado" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabelApellidoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelFechaIngresoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelNombreEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelIdentificadorEmpleado" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelCargoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextFieldNombreEmpleado" pref="132" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldApellidoEmpleado" pref="132" max="32767" attributes="0"/>
-                                  <Component id="jComboBoxCargoEmpleado" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldFechaIngresoEmpleado" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldIdentificadorEmpleado" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jButtonCancelarEmpleado" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonRegistrarEmpleado" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="jLabelIDRestauranteEmpleado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldIDRestauranteEmpleado" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelIDRestauranteEmpleado" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldIDRestauranteEmpleado" min="-2" pref="132" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabelApellidoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelFechaIngresoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelNombreEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelCargoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelIdentificadorEmpleado" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jTextFieldNombreEmpleado" pref="132" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldApellidoEmpleado" pref="132" max="32767" attributes="0"/>
+                                          <Component id="jComboBoxCargoEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldFechaIngresoEmpleado" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldIdentificadorEmpleado" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,8 +83,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelIdentificadorEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldIdentificadorEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelIdentificadorEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -154,7 +155,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIdentificadorEmpleado">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Identificador"/>
+        <Property name="text" type="java.lang.String" value="Identificador Empleado"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNombreEmpleado">

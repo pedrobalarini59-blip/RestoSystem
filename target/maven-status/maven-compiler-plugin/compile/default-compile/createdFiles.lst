@@ -16,6 +16,7 @@ CapaLogica\RestoSystem.class
 CapaGrafica\BuscarReserva.class
 CapaGrafica\BuscarMesa.class
 CapaGrafica\RegistroReserva.class
+CapaGrafica\RegistroEmpleado$1.class
 CapaLogica\Conexion.class
 CapaGrafica\BuscarRestaurante.class
 CapaLogica\Clientes.class
