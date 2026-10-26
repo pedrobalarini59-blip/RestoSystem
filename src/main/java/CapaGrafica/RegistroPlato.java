@@ -66,7 +66,7 @@ public class RegistroPlato extends javax.swing.JFrame {
 
         jTextFieldNombreRegistroPlato.addActionListener(this::jTextFieldNombreRegistroPlatoActionPerformed);
 
-        jTextAreaDescripcionRegistroPlato.setColumns(20);
+        jTextAreaDescripcionRegistroPlato.setColumns(5);
         jTextAreaDescripcionRegistroPlato.setRows(5);
         jTextAreaDescripcionRegistroPlato.setMinimumSize(new java.awt.Dimension(10, 15));
         jScrollPane1.setViewportView(jTextAreaDescripcionRegistroPlato);
