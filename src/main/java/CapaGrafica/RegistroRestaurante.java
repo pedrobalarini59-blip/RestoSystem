@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package CapaGrafica;
-
+import CapaLogica.Restaurante;
+import CapaLogica.Restaurantes;
+import javax.swing.JOptionPane;
 /**
  *
  * @author aemil
@@ -11,7 +13,7 @@ package CapaGrafica;
 public class RegistroRestaurante extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroRestaurante.class.getName());
-
+private Restaurantes gestorRestaurantes = new Restaurantes();
     /**
      * Creates new form RegistroRestaurante
      */
@@ -50,22 +52,19 @@ public class RegistroRestaurante extends javax.swing.JFrame {
 
         jLabelIdentificadorRestaurante.setText("Identificador");
 
-        jTextFieldNombreRestaurante.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombreRestaurante.addActionListener(this::jTextFieldNombreRestauranteActionPerformed);
 
-        jTextFieldDireccionRestaurante.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldDireccionRestaurante.addActionListener(this::jTextFieldDireccionRestauranteActionPerformed);
 
-        jTextFieldTelefonoRestaurante.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldTelefonoRestaurante.addActionListener(this::jTextFieldTelefonoRestauranteActionPerformed);
 
-        jTextFieldIdentificadorRestaurante.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldIdentificadorRestaurante.addActionListener(this::jTextFieldIdentificadorRestauranteActionPerformed);
 
         jButtonCancelarRegistroRestaurante.setText("Cancelar");
         jButtonCancelarRegistroRestaurante.addActionListener(this::jButtonCancelarRegistroRestauranteActionPerformed);
 
         jButtonRegistrarRestaurante.setText("Registrar");
+        jButtonRegistrarRestaurante.addActionListener(this::jButtonRegistrarRestauranteActionPerformed);
 
         jLabelTituloRegistrarRestaurante.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelTituloRegistrarRestaurante.setText("Registrar Restaurante");
@@ -156,6 +155,23 @@ public class RegistroRestaurante extends javax.swing.JFrame {
     private void jButtonCancelarRegistroRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroRestauranteActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroRestauranteActionPerformed
+
+    private void jButtonRegistrarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarRestauranteActionPerformed
+        // TODO add your handling code here:
+        
+        Restaurante nuevoRestaurante = new Restaurante(
+    jTextFieldIdentificadorRestaurante.getText(),
+    jTextFieldNombreRestaurante.getText(),
+    jTextFieldDireccionRestaurante.getText(),
+    jTextFieldTelefonoRestaurante.getText()
+);
+gestorRestaurantes.agregarRestaurante(nuevoRestaurante);
+JOptionPane.showMessageDialog(this, "Restaurante agregado exitosamente");
+jTextFieldIdentificadorRestaurante.setText("");
+jTextFieldNombreRestaurante.setText("");
+jTextFieldDireccionRestaurante.setText("");
+jTextFieldTelefonoRestaurante.setText("");
+    }//GEN-LAST:event_jButtonRegistrarRestauranteActionPerformed
 
     /**
      * @param args the command line arguments

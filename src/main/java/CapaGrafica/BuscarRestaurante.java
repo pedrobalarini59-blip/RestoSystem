@@ -1,22 +1,44 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Restaurante;
+import CapaLogica.Restaurantes;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aemil
  */
 public class BuscarRestaurante extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarRestaurante.class.getName());
 
-    /**
-     * Creates new form BuscarRestaurante
-     */
     public BuscarRestaurante() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        // Cargar la lista al iniciar
+        cargarTodosLosRestaurantes();
+    }
+
+    public void cargarTodosLosRestaurantes() {
+        List<Restaurante> lista = Restaurantes.getListaRestaurantes();
+
+        if (lista.isEmpty()) {
+            mostrarTodosLosRestaurantes.setText("No hay restaurantes registrados en el sistema.");
+            return;
+        }
+
+        StringBuilder texto = new StringBuilder();
+        for (Restaurante r : lista) {
+            texto.append("ID: ").append(r.getId()).append("\n");
+            texto.append("Nombre: ").append(r.getNombre()).append("\n");
+            texto.append("Dirección: ").append(r.getDireccion()).append("\n");
+            texto.append("Teléfono: ").append(r.getTelefono()).append("\n");
+            texto.append("----------------------------------\n");
+        }
+
+        mostrarTodosLosRestaurantes.setText(texto.toString());
+        mostrarTodosLosRestaurantes.setCaretPosition(0);
     }
 
     /**
@@ -137,10 +159,51 @@ public class BuscarRestaurante extends javax.swing.JFrame {
 
     private void jButtonBorrarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarRestauranteActionPerformed
         // TODO add your handling code here:
+        String id = identificadorRestauranteBuscado.getText().trim();
+
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresá el identificador del restaurante a borrar.");
+            return;
+        }
+
+        Restaurante restaurante = Restaurantes.buscarRestaurante(id);
+        if (restaurante == null) {
+            JOptionPane.showMessageDialog(this, "No existe un restaurante con ese identificador.");
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Seguro que querés borrar " + restaurante.getNombre() + "?",
+                "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+            Restaurantes.eliminarRestaurante(id);
+            JOptionPane.showMessageDialog(this, "Restaurante borrado.");
+            identificadorRestauranteBuscado.setText("");
+            mostrarRestaurante.setText("");
+            cargarTodosLosRestaurantes();   // refresca la lista
+        }
+    
     }//GEN-LAST:event_jButtonBorrarRestauranteActionPerformed
 
     private void jButtonBuscarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarRestauranteActionPerformed
         // TODO add your handling code here:
+      
+    String id = identificadorRestauranteBuscado.getText();
+    CapaLogica.Restaurante restauranteEncontrado = CapaLogica.Restaurantes.buscarRestaurante(id);
+
+    if (restauranteEncontrado != null) {
+        String datosRestaurante = "ID: " + restauranteEncontrado.getId() + "\n"
+                + "Nombre: " + restauranteEncontrado.getNombre() + "\n"
+                + "Dirección: " + restauranteEncontrado.getDireccion() + "\n"
+                + "Teléfono: " + restauranteEncontrado.getTelefono();
+        mostrarRestaurante.setText(datosRestaurante);
+        mostrarRestaurante.setCaretPosition(0);
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún restaurante con ese identificador.");
+        mostrarRestaurante.setText("");
+    
+}
     }//GEN-LAST:event_jButtonBuscarRestauranteActionPerformed
 
     private void jButtonVolverBuscarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverBuscarRestauranteActionPerformed

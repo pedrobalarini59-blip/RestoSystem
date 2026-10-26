@@ -5,12 +5,7 @@ public class RestoSystem {
 
     public static void main(String[] args) {
 
-        Mozo mozo = new Mozo(
-                001,
-                "Emi",
-                "Mozo",
-                2026
-        );
+          Mozo mozo = new Mozo("1", "Emi", "Mozo", "2026-01-01", "1");
 
     }
 }

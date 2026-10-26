@@ -1,24 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Empleado;
+import CapaLogica.Empleados;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aemil
  */
 public class BuscarEmpleado extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BuscarEmpleado.class.getName());
 
-    /**
-     * Creates new form BuscarEmpleado
-     */
     public BuscarEmpleado() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        // Cargar la lista al iniciar
+        cargarTodosLosEmpleados();
     }
 
+    public void cargarTodosLosEmpleados() {
+        List<Empleado> lista = Empleados.getListaEmpleados();
+
+        if (lista.isEmpty()) {
+            jTextAreaMostrarTodosLosEmpleados.setText("No hay empleados registrados en el sistema.");
+            return;
+        }
+
+        StringBuilder texto = new StringBuilder();
+        for (Empleado e : lista) {
+            texto.append("ID: ").append(e.getId()).append("\n");
+            texto.append("Nombre: ").append(e.getNombre()).append("\n");
+            texto.append("Cargo: ").append(e.getCargo()).append("\n");
+            texto.append("Fecha de ingreso: ").append(e.getfechaIngreso()).append("\n");
+            texto.append("ID Restaurante: ").append(e.getIdRestaurante()).append("\n");
+            texto.append("----------------------------------\n");
+        }
+
+        jTextAreaMostrarTodosLosEmpleados.setText(texto.toString());
+        jTextAreaMostrarTodosLosEmpleados.setCaretPosition(0);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,14 +81,14 @@ public class BuscarEmpleado extends javax.swing.JFrame {
 
         jLabelIdentificadorBuscarEmpleado.setText("Identificador");
 
-        jTextFieldIdentificadorEmpleadoBuscado.setBackground(new java.awt.Color(255, 255, 255));
-
         jButtonBuscarEmpleado.setText("Buscar");
+        jButtonBuscarEmpleado.addActionListener(this::jButtonBuscarEmpleadoActionPerformed);
 
         jButtonVolverEmpleado.setText("Volver");
         jButtonVolverEmpleado.addActionListener(this::jButtonVolverEmpleadoActionPerformed);
 
         jButtonBorrarEmpleado.setText("Borrar");
+        jButtonBorrarEmpleado.addActionListener(this::jButtonBorrarEmpleadoActionPerformed);
 
         jLabelTodosLosEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelTodosLosEmpleados.setText("Todos los Empleados:");
@@ -133,6 +155,54 @@ public class BuscarEmpleado extends javax.swing.JFrame {
     private void jButtonVolverEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverEmpleadoActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonVolverEmpleadoActionPerformed
+
+    private void jButtonBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarEmpleadoActionPerformed
+        // TODO add your handling code here:
+                String id = jTextFieldIdentificadorEmpleadoBuscado.getText();
+        CapaLogica.Empleado empleadoEncontrado = CapaLogica.Empleados.buscarEmpleado(id);
+
+        if (empleadoEncontrado != null) {
+            String datosEmpleado = "ID: " + empleadoEncontrado.getId() + "\n"
+                    + "Nombre: " + empleadoEncontrado.getNombre() + "\n"
+                    + "Cargo: " + empleadoEncontrado.getCargo() + "\n"
+                    + "Fecha de ingreso: " + empleadoEncontrado.getfechaIngreso() + "\n"
+                    + "ID Restaurante: " + empleadoEncontrado.getIdRestaurante();
+            jTextAreaBuscarEmpleado.setText(datosEmpleado);
+            jTextAreaBuscarEmpleado.setCaretPosition(0);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún empleado con ese identificador.");
+            jTextAreaBuscarEmpleado.setText("");
+        }
+        
+    }//GEN-LAST:event_jButtonBuscarEmpleadoActionPerformed
+
+    private void jButtonBorrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarEmpleadoActionPerformed
+        // TODO add your handling code here:
+                String id = jTextFieldIdentificadorEmpleadoBuscado.getText().trim();
+
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresá el identificador del empleado a borrar.");
+            return;
+        }
+
+        Empleado empleado = Empleados.buscarEmpleado(id);
+        if (empleado == null) {
+            JOptionPane.showMessageDialog(this, "No existe un empleado con ese identificador.");
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Seguro que querés borrar a " + empleado.getNombre() + "?",
+                "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+            Empleados.eliminarEmpleado(id);
+            JOptionPane.showMessageDialog(this, "Empleado borrado.");
+            jTextFieldIdentificadorEmpleadoBuscado.setText("");
+            jTextAreaBuscarEmpleado.setText("");
+            cargarTodosLosEmpleados();  
+        }
+    }//GEN-LAST:event_jButtonBorrarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments

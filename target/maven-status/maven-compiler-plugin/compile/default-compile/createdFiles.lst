@@ -4,6 +4,7 @@ CapaLogica\Reserva.class
 CapaLogica\LineaPedido.class
 CapaLogica\EstadoPedido.class
 CapaGrafica\RegistroMesa.class
+CapaLogica\Restaurantes.class
 CapaGrafica\BuscarPlato.class
 CapaGrafica\RegistroRestaurante.class
 CapaGrafica\BuscarEmpleado.class

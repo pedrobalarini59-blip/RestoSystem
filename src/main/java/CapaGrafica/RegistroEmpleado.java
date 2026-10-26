@@ -1,16 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CapaGrafica;
+
+import CapaLogica.Cocinero;
+import CapaLogica.Empleado;
+import CapaLogica.Empleados;
+import CapaLogica.Mozo;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author aemil
  */
 public class RegistroEmpleado extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroEmpleado.class.getName());
+    private Empleados gestorEmpleados = new Empleados();
 
     /**
      * Creates new form RegistroEmpleado
@@ -18,7 +21,6 @@ public class RegistroEmpleado extends javax.swing.JFrame {
     public RegistroEmpleado() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,6 +182,46 @@ public class RegistroEmpleado extends javax.swing.JFrame {
 
     private void jButtonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarEmpleadoActionPerformed
         // TODO add your handling code here:
+           
+        String cargo = jComboBoxCargoEmpleado.getSelectedItem().toString();
+        String nombreCompleto = (jTextFieldNombreEmpleado.getText().trim() + " "
+                + jTextFieldApellidoEmpleado.getText().trim()).trim();
+        String fecha = jTextFieldFechaIngresoEmpleado.getText().trim();
+
+        try {
+            java.time.LocalDate.parse(fecha);
+        } catch (java.time.format.DateTimeParseException e) {
+            JOptionPane.showMessageDialog(this, "La fecha debe tener el formato AAAA-MM-DD, por ejemplo 2024-12-02.");
+            return;
+        }
+
+        Empleado nuevoEmpleado;
+        if (cargo.equals("Mozo")) {
+            nuevoEmpleado = new Mozo(
+                jTextFieldIdentificadorEmpleado.getText(),
+                nombreCompleto,
+                cargo,
+                fecha,
+                jTextFieldIDRestauranteEmpleado.getText()
+            );
+        } else {
+            nuevoEmpleado = new Cocinero(
+                jTextFieldIdentificadorEmpleado.getText(),
+                nombreCompleto,
+                cargo,
+                fecha,
+                jTextFieldIDRestauranteEmpleado.getText()
+            );
+        }
+
+        gestorEmpleados.agregarEmpleado(nuevoEmpleado);
+        JOptionPane.showMessageDialog(this, "Empleado agregado exitosamente");
+        jTextFieldIdentificadorEmpleado.setText("");
+        jTextFieldNombreEmpleado.setText("");
+        jTextFieldApellidoEmpleado.setText("");
+        jTextFieldFechaIngresoEmpleado.setText("");
+        jTextFieldIDRestauranteEmpleado.setText("");
+    
     }//GEN-LAST:event_jButtonRegistrarEmpleadoActionPerformed
 
     private void jTextFieldFechaIngresoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaIngresoEmpleadoActionPerformed

@@ -201,8 +201,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuEmpleadoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEmpleadoBuscarActionPerformed
         // TODO add your handling code here:
-         BuscarCliente ventanaRegistro = new BuscarCliente();
-                ventanaRegistro.setVisible(true);
+         BuscarEmpleado ventanaBuscar = new BuscarEmpleado();
+                ventanaBuscar.setVisible(true);
     }//GEN-LAST:event_MenuEmpleadoBuscarActionPerformed
 
     private void MenuPlatosRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPlatosRegistrarActionPerformed
@@ -246,6 +246,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void CerrarMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarMenuPrincipalActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_CerrarMenuPrincipalActionPerformed
 
     private void MenuMesasBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMesasBuscarActionPerformed
