@@ -8,19 +8,47 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reservas {
+public class Pedidos {
 
-    public static void agregarReserva(Reserva reserva) {
-        String sql = "INSERT INTO Reserva (id, fecha, hora, num_comensales, estado, id_restaurante) VALUES (?, ?, ?, ?, ?, ?)";
+    public static String generarNuevoIdPedido() {
+        return generarNuevoId("P");
+    }
+
+    private static String generarNuevoId(String prefijo) {
+        int max = 0;
+        for (Pedido pedido : getListaPedidos()) {
+            if (pedido == null || pedido.getId_pedido() == null) {
+                continue;
+            }
+            String id = pedido.getId_pedido().trim();
+            if (id.isEmpty()) {
+                continue;
+            }
+            String numeros = id.replaceAll("[^0-9]", "");
+            if (!numeros.isEmpty()) {
+                try {
+                    int numero = Integer.parseInt(numeros);
+                    if (numero > max) {
+                        max = numero;
+                    }
+                } catch (NumberFormatException ignored) {
+                }
+            }
+        }
+        return prefijo + String.format("%03d", max + 1);
+    }
+
+    public static void agregarPedido(Pedido pedido) {
+        String sql = "INSERT INTO Pedido (id, fecha, hora, importe_total, estado, id_restaurante) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, reserva.getId());
-            ps.setString(2, reserva.getfecha());
-            ps.setString(3, reserva.gethora());
-            ps.setString(4, reserva.getcantidadComensales());
-            ps.setString(5, reserva.getEstado());
-            ps.setString(6, reserva.getIdRestaurante());
+            ps.setString(1, pedido.getId_pedido());
+            ps.setString(2, pedido.getfecha());
+            ps.setString(3, pedido.gethora());
+            ps.setString(4, pedido.getTotal());
+            ps.setString(5, pedido.getEstado());
+            ps.setString(6, pedido.getIdRestaurante());
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -28,8 +56,8 @@ public class Reservas {
         }
     }
 
-    public static Reserva buscarReserva(String id) {
-        String sql = "SELECT * FROM Reserva WHERE id = ?";
+    public static Pedido buscarPedido(String id) {
+        String sql = "SELECT * FROM Pedido WHERE id = ?";
 
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -38,11 +66,11 @@ public class Reservas {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                return new Reserva(
+                return new Pedido(
                     rs.getString("id"),
                     rs.getString("fecha"),
                     rs.getString("hora"),
-                    rs.getString("num_comensales"),
+                    rs.getString("importe_total"),
                     rs.getString("estado"),
                     rs.getString("id_restaurante")
                 );
@@ -53,8 +81,8 @@ public class Reservas {
         return null;
     }
 
-    public static void eliminarReserva(String id) {
-        String sql = "DELETE FROM Reserva WHERE id = ?";
+    public static void eliminarPedido(String id) {
+        String sql = "DELETE FROM Pedido WHERE id = ?";
 
         try (Connection con = Conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -67,20 +95,20 @@ public class Reservas {
         }
     }
 
-    public static List<Reserva> getListaReservas() {
-        List<Reserva> lista = new ArrayList<>();
-        String sql = "SELECT * FROM Reserva";
+    public static List<Pedido> getListaPedidos() {
+        List<Pedido> lista = new ArrayList<>();
+        String sql = "SELECT * FROM Pedido";
 
         try (Connection con = Conexion.conectar();
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
             while (rs.next()) {
-                lista.add(new Reserva(
+                lista.add(new Pedido(
                     rs.getString("id"),
                     rs.getString("fecha"),
                     rs.getString("hora"),
-                    rs.getString("num_comensales"),
+                    rs.getString("importe_total"),
                     rs.getString("estado"),
                     rs.getString("id_restaurante")
                 ));
