@@ -31,27 +31,17 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabelIdentificadorRestaurante" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTextFieldIdentificadorRestaurante" min="-2" pref="127" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelDireccionRestaurante" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelTelefonoRestaurante" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelNombreRestaurante" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jTextFieldDireccionRestaurante" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldTelefonoRestaurante" max="32767" attributes="0"/>
-                          <Component id="jTextFieldNombreRestaurante" min="-2" pref="127" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabelDireccionRestaurante" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelTelefonoRestaurante" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNombreRestaurante" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jTextFieldDireccionRestaurante" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldTelefonoRestaurante" max="32767" attributes="0"/>
+                  <Component id="jTextFieldNombreRestaurante" min="-2" pref="127" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
           </Group>
@@ -82,12 +72,7 @@
                   <Component id="jTextFieldTelefonoRestaurante" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTelefonoRestaurante" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelIdentificadorRestaurante" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldIdentificadorRestaurante" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="26" pref="70" max="32767" attributes="0"/>
+              <EmptySpace pref="110" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -116,11 +101,6 @@
         <Property name="text" type="java.lang.String" value="Telefono"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelIdentificadorRestaurante">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Identificador"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNombreRestaurante">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNombreRestauranteActionPerformed"/>
@@ -134,11 +114,6 @@
     <Component class="javax.swing.JTextField" name="jTextFieldTelefonoRestaurante">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTelefonoRestauranteActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldIdentificadorRestaurante">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdentificadorRestauranteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCancelarRegistroRestaurante">

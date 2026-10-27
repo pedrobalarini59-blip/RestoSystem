@@ -4,6 +4,8 @@ import CapaLogica.Mesa;
 import CapaLogica.Mesas;
 import java.util.List;
 import javax.swing.JOptionPane;
+import CapaLogica.SelectorRestaurante;
+
 
 /**
  *
@@ -34,7 +36,7 @@ public class BuscarMesa extends javax.swing.JFrame {
             texto.append("Número: ").append(m.getNumero()).append("\n");
             texto.append("Capacidad: ").append(m.getCapacidad()).append("\n");
             texto.append("Ubicación: ").append(m.getUbicacion()).append("\n");
-            texto.append("ID Restaurante: ").append(m.getIdRestaurante()).append("\n");
+                        texto.append("Restaurante: ").append(SelectorRestaurante.obtenerNombrePorId(m.getIdRestaurante())).append("\n");
             texto.append("----------------------------------\n");
         }
 
@@ -164,7 +166,7 @@ public class BuscarMesa extends javax.swing.JFrame {
                     + "Número: " + mesaEncontrada.getNumero() + "\n"
                     + "Capacidad: " + mesaEncontrada.getCapacidad() + "\n"
                     + "Ubicación: " + mesaEncontrada.getUbicacion() + "\n"
-                    + "ID Restaurante: " + mesaEncontrada.getIdRestaurante();
+                                  + "Restaurante: " + SelectorRestaurante.obtenerNombrePorId(mesaEncontrada.getIdRestaurante());
             jTextAreaMesaBuscada.setText(datosMesa);
             jTextAreaMesaBuscada.setCaretPosition(0);
         } else {

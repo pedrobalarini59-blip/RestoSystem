@@ -29,9 +29,11 @@ CapaGrafica\RegistroPedido.class
 CapaLogica\Cocinero.class
 CapaLogica\Mesas.class
 CapaLogica\EstadoReserva.class
+CapaLogica\GeneradorId.class
 CapaGrafica\BuscarPedido.class
 CapaLogica\Pedido.class
 CapaLogica\Cliente.class
 CapaLogica\Mesa.class
+CapaLogica\SelectorRestaurante.class
 CapaLogica\Restaurante.class
 CapaGrafica\RegistroPlato.class

@@ -3,7 +3,8 @@ package CapaGrafica;
 import CapaLogica.Plato;
 import CapaLogica.Platos;
 import javax.swing.JOptionPane;
-
+import CapaLogica.SelectorRestaurante;
+import CapaLogica.GeneradorId;
 /**
  *
  * @author aemil
@@ -17,7 +18,9 @@ public class RegistroPlato extends javax.swing.JFrame {
      * Creates new form RegistroPlato
      */
     public RegistroPlato() {
+        
         initComponents();
+  SelectorRestaurante.cargarCombo(jComboBoxRestaurantePlato);
     }
 
     /**
@@ -31,11 +34,9 @@ public class RegistroPlato extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jLabelTituloRegistrarPlato = new javax.swing.JLabel();
-        jLabelIdentificaorRegistrarPlato = new javax.swing.JLabel();
         jLabelCategoriaRegistrarPlato = new javax.swing.JLabel();
         jLabelDescripcionRegistroPlato = new javax.swing.JLabel();
         jLabelNombreRegistrarPlato = new javax.swing.JLabel();
-        jTextFieldIdentificadorRegistrarPlato = new javax.swing.JTextField();
         jTextFieldNombreRegistroPlato = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescripcionRegistroPlato = new javax.swing.JTextArea();
@@ -45,7 +46,7 @@ public class RegistroPlato extends javax.swing.JFrame {
         jButtonRegistrarPlato = new javax.swing.JButton();
         jComboBoxCategoriaRegistroPlato = new javax.swing.JComboBox<>();
         jLabelIDRestauranteRegistrarPlato = new javax.swing.JLabel();
-        jTextFieldIRestauranteRegistroPlato = new javax.swing.JTextField();
+        jComboBoxRestaurantePlato = new javax.swing.JComboBox<>();
 
         jLabel3.setText("jLabel3");
 
@@ -54,15 +55,11 @@ public class RegistroPlato extends javax.swing.JFrame {
         jLabelTituloRegistrarPlato.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelTituloRegistrarPlato.setText("Registrar Plato");
 
-        jLabelIdentificaorRegistrarPlato.setText("Identificador");
-
         jLabelCategoriaRegistrarPlato.setText("Categoria");
 
         jLabelDescripcionRegistroPlato.setText("Descripcion");
 
         jLabelNombreRegistrarPlato.setText("Nombre");
-
-        jTextFieldIdentificadorRegistrarPlato.addActionListener(this::jTextFieldIdentificadorRegistrarPlatoActionPerformed);
 
         jTextFieldNombreRegistroPlato.addActionListener(this::jTextFieldNombreRegistroPlatoActionPerformed);
 
@@ -85,6 +82,8 @@ public class RegistroPlato extends javax.swing.JFrame {
 
         jLabelIDRestauranteRegistrarPlato.setText("ID Restaurante");
 
+        jComboBoxRestaurantePlato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,19 +104,17 @@ public class RegistroPlato extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabelNombreRegistrarPlato)
-                                    .addComponent(jLabelIdentificaorRegistrarPlato)
                                     .addComponent(jLabelCategoriaRegistrarPlato)
                                     .addComponent(jLabelDescripcionRegistroPlato)
                                     .addComponent(jLabelPrecioRegistroPlato)
                                     .addComponent(jLabelIDRestauranteRegistrarPlato))
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldIdentificadorRegistrarPlato, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                     .addComponent(jTextFieldNombreRegistroPlato)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                     .addComponent(jTextFieldPrecioRegistroPlato)
                                     .addComponent(jComboBoxCategoriaRegistroPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldIRestauranteRegistroPlato))))
+                                    .addComponent(jComboBoxRestaurantePlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 41, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -126,11 +123,7 @@ public class RegistroPlato extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTituloRegistrarPlato)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelIdentificaorRegistrarPlato)
-                    .addComponent(jTextFieldIdentificadorRegistrarPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombreRegistrarPlato)
                     .addComponent(jTextFieldNombreRegistroPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -147,10 +140,10 @@ public class RegistroPlato extends javax.swing.JFrame {
                     .addComponent(jTextFieldPrecioRegistroPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPrecioRegistroPlato))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelIDRestauranteRegistrarPlato)
-                    .addComponent(jTextFieldIRestauranteRegistroPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                    .addComponent(jComboBoxRestaurantePlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarRegistroPlato)
                     .addComponent(jButtonRegistrarPlato))
@@ -168,21 +161,18 @@ public class RegistroPlato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPrecioRegistroPlatoActionPerformed
 
-    private void jTextFieldIdentificadorRegistrarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorRegistrarPlatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdentificadorRegistrarPlatoActionPerformed
-
     private void jButtonCancelarRegistroPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroPlatoActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroPlatoActionPerformed
 
     private void jButtonRegistrarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPlatoActionPerformed
         // TODO add your handling code here:
-           if (jTextFieldIdentificadorRegistrarPlato.getText().trim().isEmpty()
-                || jTextFieldNombreRegistroPlato.getText().trim().isEmpty()
+          String idRestaurante = SelectorRestaurante.obtenerIdSeleccionado(jComboBoxRestaurantePlato);
+
+        if (jTextFieldNombreRegistroPlato.getText().trim().isEmpty()
                 || jTextFieldPrecioRegistroPlato.getText().trim().isEmpty()
                 || jTextAreaDescripcionRegistroPlato.getText().trim().isEmpty()
-                || jTextFieldIRestauranteRegistroPlato.getText().trim().isEmpty()) {
+                || idRestaurante.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
             return;
         }
@@ -192,21 +182,25 @@ public class RegistroPlato extends javax.swing.JFrame {
             return;
         }
 
+        String id = GeneradorId.generar("Plato", "id");
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No se pudo generar el ID. Revisá la conexión con la base.");
+            return;
+        }
+
         Plato nuevoPlato = new Plato(
-            jTextFieldIdentificadorRegistrarPlato.getText(),
+            id,
             jTextFieldNombreRegistroPlato.getText(),
             jTextFieldPrecioRegistroPlato.getText(),
             jTextAreaDescripcionRegistroPlato.getText().trim(),
             jComboBoxCategoriaRegistroPlato.getSelectedItem().toString(),
-            jTextFieldIRestauranteRegistroPlato.getText()
+            idRestaurante
         );
         Platos.agregarPlato(nuevoPlato);
-        JOptionPane.showMessageDialog(this, "Plato agregado exitosamente");
-        jTextFieldIdentificadorRegistrarPlato.setText("");
+        JOptionPane.showMessageDialog(this, "Plato agregado exitosamente. ID asignado: " + id);
         jTextFieldNombreRegistroPlato.setText("");
         jTextFieldPrecioRegistroPlato.setText("");
         jTextAreaDescripcionRegistroPlato.setText("");
-        jTextFieldIRestauranteRegistroPlato.setText("");
     }//GEN-LAST:event_jButtonRegistrarPlatoActionPerformed
 
     /**
@@ -238,18 +232,16 @@ public class RegistroPlato extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelarRegistroPlato;
     private javax.swing.JButton jButtonRegistrarPlato;
     private javax.swing.JComboBox<String> jComboBoxCategoriaRegistroPlato;
+    private javax.swing.JComboBox<String> jComboBoxRestaurantePlato;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelCategoriaRegistrarPlato;
     private javax.swing.JLabel jLabelDescripcionRegistroPlato;
     private javax.swing.JLabel jLabelIDRestauranteRegistrarPlato;
-    private javax.swing.JLabel jLabelIdentificaorRegistrarPlato;
     private javax.swing.JLabel jLabelNombreRegistrarPlato;
     private javax.swing.JLabel jLabelPrecioRegistroPlato;
     private javax.swing.JLabel jLabelTituloRegistrarPlato;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDescripcionRegistroPlato;
-    private javax.swing.JTextField jTextFieldIRestauranteRegistroPlato;
-    private javax.swing.JTextField jTextFieldIdentificadorRegistrarPlato;
     private javax.swing.JTextField jTextFieldNombreRegistroPlato;
     private javax.swing.JTextField jTextFieldPrecioRegistroPlato;
     // End of variables declaration//GEN-END:variables

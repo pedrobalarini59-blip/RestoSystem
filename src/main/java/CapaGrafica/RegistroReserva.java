@@ -3,7 +3,9 @@ package CapaGrafica;
 import CapaLogica.Reserva;
 import CapaLogica.Reservas;
 import javax.swing.JOptionPane;
-
+import CapaLogica.SelectorRestaurante;
+import CapaLogica.GeneradorId;
+import CapaLogica.GeneradorId;
 /**
  *
  * @author aemil
@@ -17,7 +19,9 @@ public class RegistroReserva extends javax.swing.JFrame {
      * Creates new form RegistroReserva
      */
     public RegistroReserva() {
+        
         initComponents();
+        SelectorRestaurante.cargarCombo(jComboBoxRestauranteReserva);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,10 +43,10 @@ public class RegistroReserva extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxRestauranteReserva = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,6 +81,8 @@ public class RegistroReserva extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abierta", "Cerrada", "Cancelada" }));
 
+        jComboBoxRestauranteReserva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,12 +107,12 @@ public class RegistroReserva extends javax.swing.JFrame {
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                     .addComponent(jTextField2)
                                     .addComponent(jTextField4)
                                     .addComponent(jTextField5)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxRestauranteReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 38, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -138,7 +144,7 @@ public class RegistroReserva extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxRestauranteReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -170,30 +176,35 @@ this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (jTextField1.getText().trim().isEmpty()
-                || jTextField2.getText().trim().isEmpty()
+            String idRestaurante = SelectorRestaurante.obtenerIdSeleccionado(jComboBoxRestauranteReserva);
+
+        if (jTextField2.getText().trim().isEmpty()
                 || jTextField4.getText().trim().isEmpty()
                 || jTextField5.getText().trim().isEmpty()
-                || jTextField6.getText().trim().isEmpty()) {
+                || idRestaurante.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
             return;
         }
 
+        String id = GeneradorId.generar("Reserva", "id");
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No se pudo generar el ID. Revisá la conexión con la base.");
+            return;
+        }
+
         Reserva nuevaReserva = new Reserva(
-            jTextField1.getText(),
+            id,
             jTextField4.getText(),
             jTextField5.getText(),
             jTextField2.getText(),
             jComboBox1.getSelectedItem().toString(),
-            jTextField6.getText()
+            idRestaurante
         );
         gestorReservas.agregarReserva(nuevaReserva);
-        JOptionPane.showMessageDialog(this, "Reserva agregada exitosamente");
-        jTextField1.setText("");
+        JOptionPane.showMessageDialog(this, "Reserva agregada exitosamente. ID asignado: " + id);
         jTextField2.setText("");
         jTextField4.setText("");
         jTextField5.setText("");
-        jTextField6.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -225,6 +236,7 @@ this.dispose();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxRestauranteReserva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -236,6 +248,5 @@ this.dispose();
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

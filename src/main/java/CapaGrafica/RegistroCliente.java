@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package CapaGrafica;
-
+import CapaLogica.SelectorRestaurante;
 import CapaLogica.Cliente;
 import CapaLogica.Clientes;
 import javax.swing.JOptionPane;
@@ -21,6 +21,7 @@ public class RegistroCliente extends javax.swing.JFrame {
      */
     public RegistroCliente() {
         initComponents();
+        SelectorRestaurante.cargarCombo(jComboBoxRestauranteCliente);
     }
 
     /**
@@ -49,8 +50,8 @@ public class RegistroCliente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         botonRegistrarCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        JTextFieldIDRestaurante = new javax.swing.JTextField();
         JLabelIDRestaurante = new javax.swing.JLabel();
+        jComboBoxRestauranteCliente = new javax.swing.JComboBox<>();
 
         jTextField3.setText("jTextField1");
         jTextField3.addActionListener(this::jTextField3ActionPerformed);
@@ -76,19 +77,14 @@ public class RegistroCliente extends javax.swing.JFrame {
 
         JLabelApellidoCliente.setText("Apellido");
 
-        textNombreCliente.setBackground(new java.awt.Color(255, 255, 255));
         textNombreCliente.addActionListener(this::textNombreClienteActionPerformed);
 
-        textDocumentoCliente.setBackground(new java.awt.Color(255, 255, 255));
         textDocumentoCliente.addActionListener(this::textDocumentoClienteActionPerformed);
 
-        textCorreoElectronicoCliente.setBackground(new java.awt.Color(255, 255, 255));
         textCorreoElectronicoCliente.addActionListener(this::textCorreoElectronicoClienteActionPerformed);
 
-        textApellidoCliente.setBackground(new java.awt.Color(255, 255, 255));
         textApellidoCliente.addActionListener(this::textApellidoClienteActionPerformed);
 
-        textTelefonoCliente.setBackground(new java.awt.Color(255, 255, 255));
         textTelefonoCliente.addActionListener(this::textTelefonoClienteActionPerformed);
 
         jButton1.setText("Cancelar");
@@ -100,10 +96,9 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Registrar Cliente");
 
-        JTextFieldIDRestaurante.setBackground(new java.awt.Color(255, 255, 255));
-        JTextFieldIDRestaurante.addActionListener(this::JTextFieldIDRestauranteActionPerformed);
-
         JLabelIDRestaurante.setText("ID Restaurante");
+
+        jComboBoxRestauranteCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,11 +135,10 @@ public class RegistroCliente extends javax.swing.JFrame {
                                         .addGap(16, 16, 16)
                                         .addComponent(JLabelTelefonoCliente)
                                         .addGap(18, 18, 18)
-                                        .addComponent(textTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JLabelIDRestaurante)
-                                .addGap(18, 18, 18)
-                                .addComponent(JTextFieldIDRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBoxRestauranteCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(JLabelIDRestaurante)
                             .addComponent(jLabel1))
                         .addGap(0, 31, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -176,8 +170,8 @@ public class RegistroCliente extends javax.swing.JFrame {
                     .addComponent(textTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTextFieldIDRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLabelIDRestaurante))
+                    .addComponent(JLabelIDRestaurante)
+                    .addComponent(jComboBoxRestauranteCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 79, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -232,38 +226,34 @@ public class RegistroCliente extends javax.swing.JFrame {
 
     private void botonRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarClienteActionPerformed
         // TODO add your handling code here:
-      Cliente nuevoCliente = new Cliente(
-    textDocumentoCliente.getText(),
-    textNombreCliente.getText(),
-    textApellidoCliente.getText(),
-    textCorreoElectronicoCliente.getText(),
-    textTelefonoCliente.getText(),
-    JTextFieldIDRestaurante.getText()
-);
-gestorClientes.agregarCliente(nuevoCliente);
-JOptionPane.showMessageDialog(this, "Cliente agregado exitosamente");
-textDocumentoCliente.setText("");
-textNombreCliente.setText("");
-textApellidoCliente.setText("");
-textCorreoElectronicoCliente.setText("");
-textTelefonoCliente.setText("");
-JTextFieldIDRestaurante.setText("");
-        
+         String idRestaurante = SelectorRestaurante.obtenerIdSeleccionado(jComboBoxRestauranteCliente);
 
-if (textDocumentoCliente.getText().trim().isEmpty()
+        if (textDocumentoCliente.getText().trim().isEmpty()
                 || textNombreCliente.getText().trim().isEmpty()
                 || textApellidoCliente.getText().trim().isEmpty()
                 || textCorreoElectronicoCliente.getText().trim().isEmpty()
                 || textTelefonoCliente.getText().trim().isEmpty()
-                || JTextFieldIDRestaurante.getText().trim().isEmpty()) {
+                || idRestaurante.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
             return;
         }
-    }//GEN-LAST:event_botonRegistrarClienteActionPerformed
 
-    private void JTextFieldIDRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldIDRestauranteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextFieldIDRestauranteActionPerformed
+        Cliente nuevoCliente = new Cliente(
+            textDocumentoCliente.getText(),
+            textNombreCliente.getText(),
+            textApellidoCliente.getText(),
+            textCorreoElectronicoCliente.getText(),
+            textTelefonoCliente.getText(),
+            idRestaurante
+        );
+        gestorClientes.agregarCliente(nuevoCliente);
+        JOptionPane.showMessageDialog(this, "Cliente agregado exitosamente");
+        textDocumentoCliente.setText("");
+        textNombreCliente.setText("");
+        textApellidoCliente.setText("");
+        textCorreoElectronicoCliente.setText("");
+        textTelefonoCliente.setText("");
+    }//GEN-LAST:event_botonRegistrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,9 +287,9 @@ if (textDocumentoCliente.getText().trim().isEmpty()
     private javax.swing.JLabel JLabelIDRestaurante;
     private javax.swing.JLabel JLabelNombreCliente;
     private javax.swing.JLabel JLabelTelefonoCliente;
-    private javax.swing.JTextField JTextFieldIDRestaurante;
     private javax.swing.JButton botonRegistrarCliente;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBoxRestauranteCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

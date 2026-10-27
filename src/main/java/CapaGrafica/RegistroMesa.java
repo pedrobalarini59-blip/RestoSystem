@@ -1,9 +1,10 @@
 package CapaGrafica;
-
+import CapaLogica.SelectorRestaurante;
 import CapaLogica.Mesa;
 import CapaLogica.Mesas;
 import javax.swing.JOptionPane;
-
+import CapaLogica.SelectorRestaurante;
+import CapaLogica.GeneradorId;
 /**
  *
  * @author aemil
@@ -17,7 +18,9 @@ public class RegistroMesa extends javax.swing.JFrame {
      * Creates new form RegistroMesa
      */
     public RegistroMesa() {
+       
         initComponents();
+           SelectorRestaurante.cargarCombo(jComboBoxRestauranteMesa);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,25 +32,21 @@ public class RegistroMesa extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelTituloRegistrarMesa = new javax.swing.JLabel();
-        jLabelIDRegistroMesa = new javax.swing.JLabel();
         jLabelCapacidadRegistroMesa = new javax.swing.JLabel();
         jLabelUbicacionRegistroMesa = new javax.swing.JLabel();
         jLabelNumeroRegistroMesa = new javax.swing.JLabel();
         jLabelIDRestauranteRegistroMesa = new javax.swing.JLabel();
-        jTextFieldIDRegistroMesa = new javax.swing.JTextField();
         jTextFieldCapacidadRegistroMesa = new javax.swing.JTextField();
         jTextFieldUbicacionRegistroMesa = new javax.swing.JTextField();
         jTextFieldNumeroRegistroMesa = new javax.swing.JTextField();
-        jTextFieldIDRestauranteRegistroMesa = new javax.swing.JTextField();
         jButtonCancelarRegistroMesa = new javax.swing.JButton();
         jButtonRegistrarMesa = new javax.swing.JButton();
+        jComboBoxRestauranteMesa = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelTituloRegistrarMesa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelTituloRegistrarMesa.setText("Registrar Mesa");
-
-        jLabelIDRegistroMesa.setText("ID de Mesa");
 
         jLabelCapacidadRegistroMesa.setText("Capacidad");
 
@@ -57,22 +56,13 @@ public class RegistroMesa extends javax.swing.JFrame {
 
         jLabelIDRestauranteRegistroMesa.setText("ID Restaurante");
 
-        jTextFieldIDRegistroMesa.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldIDRegistroMesa.addActionListener(this::jTextFieldIDRegistroMesaActionPerformed);
-
-        jTextFieldCapacidadRegistroMesa.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldUbicacionRegistroMesa.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldNumeroRegistroMesa.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldIDRestauranteRegistroMesa.setBackground(new java.awt.Color(255, 255, 255));
-
         jButtonCancelarRegistroMesa.setText("Cancelar");
         jButtonCancelarRegistroMesa.addActionListener(this::jButtonCancelarRegistroMesaActionPerformed);
 
         jButtonRegistrarMesa.setText("Registrar");
         jButtonRegistrarMesa.addActionListener(this::jButtonRegistrarMesaActionPerformed);
+
+        jComboBoxRestauranteMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,7 +73,6 @@ public class RegistroMesa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelIDRegistroMesa)
                             .addComponent(jLabelNumeroRegistroMesa)
                             .addComponent(jLabelIDRestauranteRegistroMesa)
                             .addComponent(jLabelCapacidadRegistroMesa)
@@ -97,11 +86,10 @@ public class RegistroMesa extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextFieldNumeroRegistroMesa, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                                .addComponent(jTextFieldIDRestauranteRegistroMesa)
-                                .addComponent(jTextFieldUbicacionRegistroMesa)
-                                .addComponent(jTextFieldIDRegistroMesa))
-                            .addComponent(jTextFieldCapacidadRegistroMesa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(47, Short.MAX_VALUE))
+                                .addComponent(jTextFieldUbicacionRegistroMesa))
+                            .addComponent(jTextFieldCapacidadRegistroMesa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxRestauranteMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(174, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRegistrarMesa)
@@ -116,11 +104,7 @@ public class RegistroMesa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTituloRegistrarMesa)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelIDRegistroMesa)
-                    .addComponent(jTextFieldIDRegistroMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCapacidadRegistroMesa)
                     .addComponent(jTextFieldCapacidadRegistroMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -133,12 +117,10 @@ public class RegistroMesa extends javax.swing.JFrame {
                     .addComponent(jLabelNumeroRegistroMesa)
                     .addComponent(jTextFieldNumeroRegistroMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelIDRestauranteRegistroMesa)
-                    .addComponent(jTextFieldIDRestauranteRegistroMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 84, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxRestauranteMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegistrarMesa)
                     .addComponent(jButtonCancelarRegistroMesa))
@@ -148,39 +130,40 @@ public class RegistroMesa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldIDRegistroMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIDRegistroMesaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIDRegistroMesaActionPerformed
-
     private void jButtonCancelarRegistroMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroMesaActionPerformed
             this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroMesaActionPerformed
 
     private void jButtonRegistrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarMesaActionPerformed
         // TODO add your handling code here:
-          Mesa nuevaMesa = new Mesa(
-            jTextFieldIDRegistroMesa.getText(),
-            jTextFieldNumeroRegistroMesa.getText(),
-            jTextFieldCapacidadRegistroMesa.getText(),
-            jTextFieldUbicacionRegistroMesa.getText(),
-            jTextFieldIDRestauranteRegistroMesa.getText()
-        );
-        gestorMesas.agregarMesa(nuevaMesa);
-        JOptionPane.showMessageDialog(this, "Mesa agregada exitosamente");
-        jTextFieldIDRegistroMesa.setText("");
-        jTextFieldNumeroRegistroMesa.setText("");
-        jTextFieldCapacidadRegistroMesa.setText("");
-        jTextFieldUbicacionRegistroMesa.setText("");
-        jTextFieldIDRestauranteRegistroMesa.setText("");
-        
-                if (jTextFieldIDRegistroMesa.getText().trim().isEmpty()
-                || jTextFieldNumeroRegistroMesa.getText().trim().isEmpty()
+        String idRestaurante = SelectorRestaurante.obtenerIdSeleccionado(jComboBoxRestauranteMesa);
+
+        if (jTextFieldNumeroRegistroMesa.getText().trim().isEmpty()
                 || jTextFieldCapacidadRegistroMesa.getText().trim().isEmpty()
                 || jTextFieldUbicacionRegistroMesa.getText().trim().isEmpty()
-                || jTextFieldIDRestauranteRegistroMesa.getText().trim().isEmpty()) {
+                || idRestaurante.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
             return;
         }
+
+        String id = GeneradorId.generar("Mesa", "id_mesa");
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No se pudo generar el ID. Revisá la conexión con la base.");
+            return;
+        }
+
+        Mesa nuevaMesa = new Mesa(
+            id,
+            jTextFieldNumeroRegistroMesa.getText(),
+            jTextFieldCapacidadRegistroMesa.getText(),
+            jTextFieldUbicacionRegistroMesa.getText(),
+            idRestaurante
+        );
+        gestorMesas.agregarMesa(nuevaMesa);
+        JOptionPane.showMessageDialog(this, "Mesa agregada exitosamente. ID asignado: " + id);
+        jTextFieldNumeroRegistroMesa.setText("");
+        jTextFieldCapacidadRegistroMesa.setText("");
+        jTextFieldUbicacionRegistroMesa.setText("");
     }//GEN-LAST:event_jButtonRegistrarMesaActionPerformed
 
     /**
@@ -211,15 +194,13 @@ public class RegistroMesa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarRegistroMesa;
     private javax.swing.JButton jButtonRegistrarMesa;
+    private javax.swing.JComboBox<String> jComboBoxRestauranteMesa;
     private javax.swing.JLabel jLabelCapacidadRegistroMesa;
-    private javax.swing.JLabel jLabelIDRegistroMesa;
     private javax.swing.JLabel jLabelIDRestauranteRegistroMesa;
     private javax.swing.JLabel jLabelNumeroRegistroMesa;
     private javax.swing.JLabel jLabelTituloRegistrarMesa;
     private javax.swing.JLabel jLabelUbicacionRegistroMesa;
     private javax.swing.JTextField jTextFieldCapacidadRegistroMesa;
-    private javax.swing.JTextField jTextFieldIDRegistroMesa;
-    private javax.swing.JTextField jTextFieldIDRestauranteRegistroMesa;
     private javax.swing.JTextField jTextFieldNumeroRegistroMesa;
     private javax.swing.JTextField jTextFieldUbicacionRegistroMesa;
     // End of variables declaration//GEN-END:variables

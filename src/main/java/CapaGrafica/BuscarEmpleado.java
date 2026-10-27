@@ -4,7 +4,7 @@ import CapaLogica.Empleado;
 import CapaLogica.Empleados;
 import java.util.List;
 import javax.swing.JOptionPane;
-
+import CapaLogica.SelectorRestaurante;
 /**
  *
  * @author aemil
@@ -34,7 +34,7 @@ public class BuscarEmpleado extends javax.swing.JFrame {
             texto.append("Nombre: ").append(e.getNombre()).append("\n");
             texto.append("Cargo: ").append(e.getCargo()).append("\n");
             texto.append("Fecha de ingreso: ").append(e.getfechaIngreso()).append("\n");
-            texto.append("ID Restaurante: ").append(e.getIdRestaurante()).append("\n");
+            texto.append("Restaurante: ").append(SelectorRestaurante.obtenerNombrePorId(e.getIdRestaurante())).append("\n");
             texto.append("----------------------------------\n");
         }
 
@@ -166,7 +166,7 @@ public class BuscarEmpleado extends javax.swing.JFrame {
                     + "Nombre: " + empleadoEncontrado.getNombre() + "\n"
                     + "Cargo: " + empleadoEncontrado.getCargo() + "\n"
                     + "Fecha de ingreso: " + empleadoEncontrado.getfechaIngreso() + "\n"
-                    + "ID Restaurante: " + empleadoEncontrado.getIdRestaurante();
+                    + "Restaurante: " + SelectorRestaurante.obtenerNombrePorId(empleadoEncontrado.getIdRestaurante());
             jTextAreaBuscarEmpleado.setText(datosEmpleado);
             jTextAreaBuscarEmpleado.setCaretPosition(0);
         } else {

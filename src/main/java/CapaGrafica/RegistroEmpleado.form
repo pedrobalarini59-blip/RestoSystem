@@ -34,11 +34,12 @@
                               <Component id="jButtonRegistrarEmpleado" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabelIDRestauranteEmpleado" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldIDRestauranteEmpleado" min="-2" pref="132" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxRestauranteEmpleado" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -46,7 +47,6 @@
                                           <Component id="jLabelFechaIngresoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelNombreEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelCargoEmpleado" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelIdentificadorEmpleado" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -54,11 +54,10 @@
                                           <Component id="jTextFieldApellidoEmpleado" pref="132" max="32767" attributes="0"/>
                                           <Component id="jComboBoxCargoEmpleado" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextFieldFechaIngresoEmpleado" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldIdentificadorEmpleado" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -78,15 +77,10 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldIDRestauranteEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelIDRestauranteEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxRestauranteEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldIdentificadorEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelIdentificadorEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelNombreEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldNombreEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,7 +100,7 @@
                   <Component id="jLabelCargoEmpleado" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxCargoEmpleado" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonRegistrarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonCancelarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -153,19 +147,9 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelIdentificadorEmpleado">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Identificador Empleado"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNombreEmpleado">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNombreEmpleadoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldIdentificadorEmpleado">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdentificadorEmpleadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldApellidoEmpleado">
@@ -177,11 +161,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="ID Restaurante"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldIDRestauranteEmpleado">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIDRestauranteEmpleadoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCancelarEmpleado">
       <Properties>
@@ -208,6 +187,21 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFechaIngresoEmpleadoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxRestauranteEmpleado">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -6,6 +6,7 @@ package CapaGrafica;
 import CapaLogica.Restaurante;
 import CapaLogica.Restaurantes;
 import javax.swing.JOptionPane;
+import CapaLogica.GeneradorId;
 /**
  *
  * @author aemil
@@ -33,11 +34,9 @@ private Restaurantes gestorRestaurantes = new Restaurantes();
         jLabelNombreRestaurante = new javax.swing.JLabel();
         jLabelDireccionRestaurante = new javax.swing.JLabel();
         jLabelTelefonoRestaurante = new javax.swing.JLabel();
-        jLabelIdentificadorRestaurante = new javax.swing.JLabel();
         jTextFieldNombreRestaurante = new javax.swing.JTextField();
         jTextFieldDireccionRestaurante = new javax.swing.JTextField();
         jTextFieldTelefonoRestaurante = new javax.swing.JTextField();
-        jTextFieldIdentificadorRestaurante = new javax.swing.JTextField();
         jButtonCancelarRegistroRestaurante = new javax.swing.JButton();
         jButtonRegistrarRestaurante = new javax.swing.JButton();
         jLabelTituloRegistrarRestaurante = new javax.swing.JLabel();
@@ -50,15 +49,11 @@ private Restaurantes gestorRestaurantes = new Restaurantes();
 
         jLabelTelefonoRestaurante.setText("Telefono");
 
-        jLabelIdentificadorRestaurante.setText("Identificador");
-
         jTextFieldNombreRestaurante.addActionListener(this::jTextFieldNombreRestauranteActionPerformed);
 
         jTextFieldDireccionRestaurante.addActionListener(this::jTextFieldDireccionRestauranteActionPerformed);
 
         jTextFieldTelefonoRestaurante.addActionListener(this::jTextFieldTelefonoRestauranteActionPerformed);
-
-        jTextFieldIdentificadorRestaurante.addActionListener(this::jTextFieldIdentificadorRestauranteActionPerformed);
 
         jButtonCancelarRegistroRestaurante.setText("Cancelar");
         jButtonCancelarRegistroRestaurante.addActionListener(this::jButtonCancelarRegistroRestauranteActionPerformed);
@@ -80,23 +75,16 @@ private Restaurantes gestorRestaurantes = new Restaurantes();
                 .addComponent(jButtonRegistrarRestaurante)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelIdentificadorRestaurante)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldIdentificadorRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelDireccionRestaurante)
-                            .addComponent(jLabelTelefonoRestaurante)
-                            .addComponent(jLabelNombreRestaurante))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextFieldDireccionRestaurante, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTelefonoRestaurante)
-                            .addComponent(jTextFieldNombreRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelDireccionRestaurante)
+                    .addComponent(jLabelTelefonoRestaurante)
+                    .addComponent(jLabelNombreRestaurante))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextFieldDireccionRestaurante, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldTelefonoRestaurante)
+                    .addComponent(jTextFieldNombreRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 31, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -120,11 +108,7 @@ private Restaurantes gestorRestaurantes = new Restaurantes();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldTelefonoRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTelefonoRestaurante))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelIdentificadorRestaurante)
-                    .addComponent(jTextFieldIdentificadorRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 70, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -148,33 +132,33 @@ private Restaurantes gestorRestaurantes = new Restaurantes();
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTelefonoRestauranteActionPerformed
 
-    private void jTextFieldIdentificadorRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorRestauranteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdentificadorRestauranteActionPerformed
-
     private void jButtonCancelarRegistroRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarRegistroRestauranteActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroRestauranteActionPerformed
 
     private void jButtonRegistrarRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarRestauranteActionPerformed
         // TODO add your handling code here:
-  if (jTextFieldIdentificadorRestaurante.getText().trim().isEmpty()
-                || jTextFieldNombreRestaurante.getText().trim().isEmpty()
+        if (jTextFieldNombreRestaurante.getText().trim().isEmpty()
                 || jTextFieldDireccionRestaurante.getText().trim().isEmpty()
                 || jTextFieldTelefonoRestaurante.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
             return;
         }
 
+        String id = GeneradorId.generar("Restaurante", "id");
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No se pudo generar el ID. Revisá la conexión con la base.");
+            return;
+        }
+
         Restaurante nuevoRestaurante = new Restaurante(
-            jTextFieldIdentificadorRestaurante.getText(),
+            id,
             jTextFieldNombreRestaurante.getText(),
             jTextFieldDireccionRestaurante.getText(),
             jTextFieldTelefonoRestaurante.getText()
         );
         gestorRestaurantes.agregarRestaurante(nuevoRestaurante);
-        JOptionPane.showMessageDialog(this, "Restaurante agregado exitosamente");
-        jTextFieldIdentificadorRestaurante.setText("");
+        JOptionPane.showMessageDialog(this, "Restaurante agregado exitosamente. ID asignado: " + id);
         jTextFieldNombreRestaurante.setText("");
         jTextFieldDireccionRestaurante.setText("");
         jTextFieldTelefonoRestaurante.setText("");
@@ -209,12 +193,10 @@ private Restaurantes gestorRestaurantes = new Restaurantes();
     private javax.swing.JButton jButtonCancelarRegistroRestaurante;
     private javax.swing.JButton jButtonRegistrarRestaurante;
     private javax.swing.JLabel jLabelDireccionRestaurante;
-    private javax.swing.JLabel jLabelIdentificadorRestaurante;
     private javax.swing.JLabel jLabelNombreRestaurante;
     private javax.swing.JLabel jLabelTelefonoRestaurante;
     private javax.swing.JLabel jLabelTituloRegistrarRestaurante;
     private javax.swing.JTextField jTextFieldDireccionRestaurante;
-    private javax.swing.JTextField jTextFieldIdentificadorRestaurante;
     private javax.swing.JTextField jTextFieldNombreRestaurante;
     private javax.swing.JTextField jTextFieldTelefonoRestaurante;
     // End of variables declaration//GEN-END:variables

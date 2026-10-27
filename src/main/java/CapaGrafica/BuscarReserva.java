@@ -4,7 +4,7 @@ import CapaLogica.Reserva;
 import CapaLogica.Reservas;
 import java.util.List;
 import javax.swing.JOptionPane;
-
+import CapaLogica.SelectorRestaurante;
 /**
  *
  * @author aemil
@@ -35,7 +35,7 @@ public class BuscarReserva extends javax.swing.JFrame {
             texto.append("Hora: ").append(r.gethora()).append("\n");
             texto.append("Comensales: ").append(r.getcantidadComensales()).append("\n");
             texto.append("Estado: ").append(r.getEstado()).append("\n");
-            texto.append("ID Restaurante: ").append(r.getIdRestaurante()).append("\n");
+                   texto.append("Restaurante: ").append(SelectorRestaurante.obtenerNombrePorId(r.getIdRestaurante())).append("\n");
             texto.append("----------------------------------\n");
         }
 
@@ -168,7 +168,7 @@ public class BuscarReserva extends javax.swing.JFrame {
                     + "Hora: " + reservaEncontrada.gethora() + "\n"
                     + "Comensales: " + reservaEncontrada.getcantidadComensales() + "\n"
                     + "Estado: " + reservaEncontrada.getEstado() + "\n"
-                    + "ID Restaurante: " + reservaEncontrada.getIdRestaurante();
+                     + "Restaurante: " + SelectorRestaurante.obtenerNombrePorId(reservaEncontrada.getIdRestaurante());
             jTextAreaBuscarIdentificadorReserva.setText(datosReserva);
             jTextAreaBuscarIdentificadorReserva.setCaretPosition(0);
         } else {

@@ -4,6 +4,7 @@ import CapaLogica.Pedido;
 import CapaLogica.Pedidos;
 import java.util.List;
 import javax.swing.JOptionPane;
+import CapaLogica.SelectorRestaurante;
 
 /**
  *
@@ -35,7 +36,7 @@ public class BuscarPedido extends javax.swing.JFrame {
             texto.append("Hora: ").append(p.gethora()).append("\n");
             texto.append("Total: ").append(p.getTotal()).append("\n");
             texto.append("Estado: ").append(p.getEstado()).append("\n");
-            texto.append("ID Restaurante: ").append(p.getIdRestaurante()).append("\n");
+                      texto.append("Restaurante: ").append(SelectorRestaurante.obtenerNombrePorId(p.getIdRestaurante())).append("\n");
             texto.append("----------------------------------\n");
         }
 
@@ -178,7 +179,7 @@ public class BuscarPedido extends javax.swing.JFrame {
                     + "Hora: " + pedidoEncontrado.gethora() + "\n"
                     + "Total: " + pedidoEncontrado.getTotal() + "\n"
                     + "Estado: " + pedidoEncontrado.getEstado() + "\n"
-                    + "ID Restaurante: " + pedidoEncontrado.getIdRestaurante();
+                       + "Restaurante: " + SelectorRestaurante.obtenerNombrePorId(pedidoEncontrado.getIdRestaurante());
             jTextAreaBuscarPlato.setText(datosPedido);
             jTextAreaBuscarPlato.setCaretPosition(0);
         } else {

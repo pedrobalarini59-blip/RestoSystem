@@ -48,7 +48,6 @@
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabelNombreRegistrarPlato" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelIdentificaorRegistrarPlato" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelCategoriaRegistrarPlato" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelDescripcionRegistroPlato" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelPrecioRegistroPlato" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -56,12 +55,11 @@
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextFieldIdentificadorRegistrarPlato" alignment="0" pref="132" max="32767" attributes="0"/>
                                   <Component id="jTextFieldNombreRegistroPlato" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" pref="132" max="32767" attributes="0"/>
                                   <Component id="jTextFieldPrecioRegistroPlato" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jComboBoxCategoriaRegistroPlato" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldIRestauranteRegistroPlato" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxRestaurantePlato" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -77,12 +75,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelTituloRegistrarPlato" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelIdentificaorRegistrarPlato" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldIdentificadorRegistrarPlato" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelNombreRegistrarPlato" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldNombreRegistroPlato" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -103,11 +96,11 @@
                   <Component id="jLabelPrecioRegistroPlato" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelIDRestauranteRegistrarPlato" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldIRestauranteRegistroPlato" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelIDRestauranteRegistrarPlato" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxRestaurantePlato" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonCancelarRegistroPlato" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRegistrarPlato" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -126,11 +119,6 @@
         <Property name="text" type="java.lang.String" value="Registrar Plato"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelIdentificaorRegistrarPlato">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Identificador"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabelCategoriaRegistrarPlato">
       <Properties>
         <Property name="text" type="java.lang.String" value="Categoria"/>
@@ -145,11 +133,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldIdentificadorRegistrarPlato">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdentificadorRegistrarPlatoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNombreRegistroPlato">
       <Events>
@@ -221,7 +204,20 @@
         <Property name="text" type="java.lang.String" value="ID Restaurante"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldIRestauranteRegistroPlato">
+    <Component class="javax.swing.JComboBox" name="jComboBoxRestaurantePlato">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

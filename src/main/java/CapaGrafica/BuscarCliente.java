@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package CapaGrafica;
-
+import CapaLogica.SelectorRestaurante;
 import CapaLogica.Cliente;
 import CapaLogica.Clientes;
 import java.util.List;
@@ -40,7 +40,7 @@ public class BuscarCliente extends javax.swing.JFrame {
             texto.append("Nombre: ").append(c.getNombre()).append(" ").append(c.getApellido()).append("\n");
             texto.append("Correo: ").append(c.getcorreoElectronico()).append("\n");
             texto.append("Teléfono: ").append(c.getTelefono()).append("\n");
-            texto.append("ID Restaurante: ").append(c.getIdRestaurante()).append("\n");
+            texto.append("Restaurante: ").append(SelectorRestaurante.obtenerNombrePorId(c.getIdRestaurante())).append("\n");
             texto.append("----------------------------------\n");
         }
         
@@ -188,7 +188,7 @@ public class BuscarCliente extends javax.swing.JFrame {
                      + "Apellido: " + clienteEncontrado.getApellido() + "\n"
                      + "Correo: " + clienteEncontrado.getcorreoElectronico() + "\n"
                      + "Teléfono: " + clienteEncontrado.getTelefono()
-                     + "ID Restaurante: " + clienteEncontrado.getIdRestaurante();
+                     + "Restaurante: " + SelectorRestaurante.obtenerNombrePorId(clienteEncontrado.getIdRestaurante());
 mostrarClientes.setText(datosClientes);
 mostrarClientes.setCaretPosition(0);
         } else {

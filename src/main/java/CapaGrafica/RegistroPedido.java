@@ -3,7 +3,8 @@ package CapaGrafica;
 import CapaLogica.Pedido;
 import CapaLogica.Pedidos;
 import javax.swing.JOptionPane;
-
+import CapaLogica.SelectorRestaurante;
+import CapaLogica.GeneradorId;
 /**
  *
  * @author aemil
@@ -18,6 +19,7 @@ public class RegistroPedido extends javax.swing.JFrame {
      */
     public RegistroPedido() {
         initComponents();
+         SelectorRestaurante.cargarCombo(jComboBoxRestaurantePedido);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +31,6 @@ public class RegistroPedido extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelTituloRegistrarPedido = new javax.swing.JLabel();
-        jLabelIdentificadorRegistroPedido = new javax.swing.JLabel();
         jLabelEstadoRegistroPedido = new javax.swing.JLabel();
         jLabelHoraRegistroPedido = new javax.swing.JLabel();
         jLabelFechaRegistroPedido = new javax.swing.JLabel();
@@ -38,21 +39,18 @@ public class RegistroPedido extends javax.swing.JFrame {
         jTextAreaIncluyeRegistroPedido = new javax.swing.JTextArea();
         jTextFieldHoraRegistroPedido = new javax.swing.JTextField();
         jTextFieldFechaRegistroPedido = new javax.swing.JTextField();
-        jTextFieldIdentificadorRegistroPedido = new javax.swing.JTextField();
         jComboBoxEstadoRegistroPedido = new javax.swing.JComboBox<>();
         jLabelPrecioTotalRegistroPedido = new javax.swing.JLabel();
         jTextFieldPrecioTotalRegistroPedido = new javax.swing.JTextField();
         jButtonCancelarRegistroPedido = new javax.swing.JButton();
         jLabelIDRestauranteRegistroPedido = new javax.swing.JLabel();
-        jTextFieldIDRestauranteRegistroPedido = new javax.swing.JTextField();
         jButtonRegistrarPedido = new javax.swing.JButton();
+        jComboBoxRestaurantePedido = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelTituloRegistrarPedido.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelTituloRegistrarPedido.setText("Registrar Pedido");
-
-        jLabelIdentificadorRegistroPedido.setText("Identificador");
 
         jLabelEstadoRegistroPedido.setText("Estado");
 
@@ -79,10 +77,10 @@ public class RegistroPedido extends javax.swing.JFrame {
 
         jLabelIDRestauranteRegistroPedido.setText("ID Restaurante");
 
-        jTextFieldIDRestauranteRegistroPedido.addActionListener(this::jTextFieldIDRestauranteRegistroPedidoActionPerformed);
-
         jButtonRegistrarPedido.setText("Registrar");
         jButtonRegistrarPedido.addActionListener(this::jButtonRegistrarPedidoActionPerformed);
+
+        jComboBoxRestaurantePedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +102,6 @@ public class RegistroPedido extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabelEstadoRegistroPedido)
-                                    .addComponent(jLabelIdentificadorRegistroPedido)
                                     .addComponent(jLabelFechaRegistroPedido)
                                     .addComponent(jLabelHoraRegistroPedido)
                                     .addComponent(jLabelIncluyeRegistroPedido)
@@ -115,12 +112,10 @@ public class RegistroPedido extends javax.swing.JFrame {
                                     .addComponent(jComboBoxEstadoRegistroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextFieldFechaRegistroPedido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldIdentificadorRegistroPedido, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextFieldHoraRegistroPedido, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextFieldIDRestauranteRegistroPedido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldPrecioTotalRegistroPedido, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jTextFieldPrecioTotalRegistroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxRestaurantePedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 46, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -129,11 +124,7 @@ public class RegistroPedido extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTituloRegistrarPedido)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelIdentificadorRegistroPedido)
-                    .addComponent(jTextFieldIdentificadorRegistroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEstadoRegistroPedido)
                     .addComponent(jComboBoxEstadoRegistroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -154,10 +145,10 @@ public class RegistroPedido extends javax.swing.JFrame {
                     .addComponent(jLabelPrecioTotalRegistroPedido)
                     .addComponent(jTextFieldPrecioTotalRegistroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelIDRestauranteRegistroPedido)
-                    .addComponent(jTextFieldIDRestauranteRegistroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(jComboBoxRestaurantePedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarRegistroPedido)
                     .addComponent(jButtonRegistrarPedido))
@@ -179,37 +170,37 @@ public class RegistroPedido extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarRegistroPedidoActionPerformed
 
-    private void jTextFieldIDRestauranteRegistroPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIDRestauranteRegistroPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIDRestauranteRegistroPedidoActionPerformed
-
     private void jButtonRegistrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPedidoActionPerformed
-        // TODO add your handling code here:
-          if (jTextFieldIdentificadorRegistroPedido.getText().trim().isEmpty()
-                || jTextFieldFechaRegistroPedido.getText().trim().isEmpty()
+           String idRestaurante = SelectorRestaurante.obtenerIdSeleccionado(jComboBoxRestaurantePedido);
+
+        if (jTextFieldFechaRegistroPedido.getText().trim().isEmpty()
                 || jTextFieldHoraRegistroPedido.getText().trim().isEmpty()
                 || jTextFieldPrecioTotalRegistroPedido.getText().trim().isEmpty()
-                || jTextFieldIDRestauranteRegistroPedido.getText().trim().isEmpty()) {
+                || idRestaurante.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Completá todos los campos antes de registrar.");
             return;
         }
 
+        String id = GeneradorId.generar("Pedido", "id");
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No se pudo generar el ID. Revisá la conexión con la base.");
+            return;
+        }
+
         Pedido nuevoPedido = new Pedido(
-            jTextFieldIdentificadorRegistroPedido.getText(),
+            id,
             jTextFieldFechaRegistroPedido.getText(),
             jTextFieldHoraRegistroPedido.getText(),
             jTextFieldPrecioTotalRegistroPedido.getText(),
             jComboBoxEstadoRegistroPedido.getSelectedItem().toString(),
-            jTextFieldIDRestauranteRegistroPedido.getText()
+            idRestaurante
         );
         gestorPedidos.agregarPedido(nuevoPedido);
-        JOptionPane.showMessageDialog(this, "Pedido agregado exitosamente");
-        jTextFieldIdentificadorRegistroPedido.setText("");
+        JOptionPane.showMessageDialog(this, "Pedido agregado exitosamente. ID asignado: " + id);
         jTextFieldFechaRegistroPedido.setText("");
         jTextFieldHoraRegistroPedido.setText("");
         jTextFieldPrecioTotalRegistroPedido.setText("");
         jTextAreaIncluyeRegistroPedido.setText("");
-        jTextFieldIDRestauranteRegistroPedido.setText("");
     }//GEN-LAST:event_jButtonRegistrarPedidoActionPerformed
 
     /**
@@ -241,11 +232,11 @@ public class RegistroPedido extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelarRegistroPedido;
     private javax.swing.JButton jButtonRegistrarPedido;
     private javax.swing.JComboBox<String> jComboBoxEstadoRegistroPedido;
+    private javax.swing.JComboBox<String> jComboBoxRestaurantePedido;
     private javax.swing.JLabel jLabelEstadoRegistroPedido;
     private javax.swing.JLabel jLabelFechaRegistroPedido;
     private javax.swing.JLabel jLabelHoraRegistroPedido;
     private javax.swing.JLabel jLabelIDRestauranteRegistroPedido;
-    private javax.swing.JLabel jLabelIdentificadorRegistroPedido;
     private javax.swing.JLabel jLabelIncluyeRegistroPedido;
     private javax.swing.JLabel jLabelPrecioTotalRegistroPedido;
     private javax.swing.JLabel jLabelTituloRegistrarPedido;
@@ -253,8 +244,6 @@ public class RegistroPedido extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaIncluyeRegistroPedido;
     private javax.swing.JTextField jTextFieldFechaRegistroPedido;
     private javax.swing.JTextField jTextFieldHoraRegistroPedido;
-    private javax.swing.JTextField jTextFieldIDRestauranteRegistroPedido;
-    private javax.swing.JTextField jTextFieldIdentificadorRegistroPedido;
     private javax.swing.JTextField jTextFieldPrecioTotalRegistroPedido;
     // End of variables declaration//GEN-END:variables
 }
